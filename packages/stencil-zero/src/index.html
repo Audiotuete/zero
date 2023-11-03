@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/stencil-zero.esm.js"></script>
+    <script nomodule src="/build/stencil-zero.js"></script>
+    <link rel="stylesheet" href="/build/stencil-zero.css" />
+  </head>
+  <body style="font-family: Arial, Helvetica, sans-serif; height: 100vh; display: flex; justify-content: center; align-items: center; margin: 0">
+    <z-box w="400px" h="800px">
+      <z-box row justify="space-between" flex="1"> <z-box w="60px"></z-box> <z-box w="60px"></z-box></z-box>
+      <z-box block flex="1"><p>Home</p></z-box>
+      <z-box name="Social Bar" row justify="space-between" flex="1">
+        <z-box w="60px"></z-box>
+        <z-box w="60px"></z-box>
+        <z-box w="60px"></z-box>
+        <z-box w="60px"></z-box>
+        <z-box w="60px"></z-box>
+        <z-box w="60px"></z-box>
+      </z-box>
+      <z-box gap="10px" row flex="1">
+        <z-box w="60px"></z-box>
+        <z-box w="120px"></z-box>
+      </z-box>
+      <z-box block pt="10px" justfiy="center" flex="10">
+        <z-box name="Stats" row wrap gap="10px" justify="center">
+          <z-list-item-box name="Stat" w="180px" h="180px"></z-list-item-box>
+          <z-list-item-box name="Stat" w="180px" h="180px"></z-list-item-box>
+          <z-list-item-box name="Stat" w="180px" h="180px"></z-list-item-box>
+          <z-list-item-box name="Stat" w="180px" h="180px"></z-list-item-box>
+        </z-box>
+      </z-box>
+      <z-box name="Navbar" row justify="space-around" flex="1">
+        <z-box w="60px"></z-box>
+        <z-box w="60px"></z-box>
+        <z-box w="60px"></z-box>
+        <z-box w="60px"></z-box>
+      </z-box>
+    </z-box>
+  </body>
+</html>

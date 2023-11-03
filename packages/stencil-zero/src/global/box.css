@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+  overflow: auto;
+  border: 1px solid black;
+  box-sizing: border-box;
+  min-height: 24px;
+  position: relative;
+}
+
+.box-label {
+  position: absolute;
+  font-size: 80%;
+  font-weight: 600;
+  bottom: 0;
+  right: 0;
+  padding: 0 4px 0 4px;
+  background: white;
+}
