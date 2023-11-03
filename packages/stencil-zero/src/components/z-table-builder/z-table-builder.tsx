@@ -26,7 +26,7 @@ export class TableBuilder {
             <tr>{this.tableHeaders && this.tableHeaders.map(({ name }) => <th>{name}</th>)}</tr>
             {this.json.map(row => (
               <tr>
-                {this.tableHeaders.map(({ key = '' }) => (
+                {this.tableHeaders.map(({ key }: { key: string }) => (
                   <td>{this.digForValue(row, key.split('.'))}</td>
                 ))}
               </tr>
