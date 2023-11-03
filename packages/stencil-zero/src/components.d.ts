@@ -89,6 +89,10 @@ export namespace Components {
         "wrap"?: boolean;
         "zIndex"?: string;
     }
+    interface ZTableBuilder {
+        "json"?: [];
+        "tableHeaders"?: [];
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -109,10 +113,17 @@ declare global {
         prototype: HTMLZListItemBoxElement;
         new (): HTMLZListItemBoxElement;
     };
+    interface HTMLZTableBuilderElement extends Components.ZTableBuilder, HTMLStencilElement {
+    }
+    var HTMLZTableBuilderElement: {
+        prototype: HTMLZTableBuilderElement;
+        new (): HTMLZTableBuilderElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "z-box": HTMLZBoxElement;
         "z-list-item-box": HTMLZListItemBoxElement;
+        "z-table-builder": HTMLZTableBuilderElement;
     }
 }
 declare namespace LocalJSX {
@@ -199,10 +210,15 @@ declare namespace LocalJSX {
         "wrap"?: boolean;
         "zIndex"?: string;
     }
+    interface ZTableBuilder {
+        "json"?: [];
+        "tableHeaders"?: [];
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "z-box": ZBox;
         "z-list-item-box": ZListItemBox;
+        "z-table-builder": ZTableBuilder;
     }
 }
 export { LocalJSX as JSX };
@@ -212,6 +228,7 @@ declare module "@stencil/core" {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "z-box": LocalJSX.ZBox & JSXBase.HTMLAttributes<HTMLZBoxElement>;
             "z-list-item-box": LocalJSX.ZListItemBox & JSXBase.HTMLAttributes<HTMLZListItemBoxElement>;
+            "z-table-builder": LocalJSX.ZTableBuilder & JSXBase.HTMLAttributes<HTMLZTableBuilderElement>;
         }
     }
 }

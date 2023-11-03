@@ -87,3 +87,9 @@ export const ZListItemBox = /*@__PURE__*/ defineContainer<JSX.ZListItemBox>('z-l
   'background'
 ]);
 
+
+export const ZTableBuilder = /*@__PURE__*/ defineContainer<JSX.ZTableBuilder>('z-table-builder', undefined, [
+  'json',
+  'tableHeaders'
+]);
+

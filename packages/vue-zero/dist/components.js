@@ -73,4 +73,8 @@ export const ZListItemBox = defineContainer('z-list-item-box', undefined, [
     'boxShadow',
     'background'
 ]);
+export const ZTableBuilder = defineContainer('z-table-builder', undefined, [
+    'json',
+    'tableHeaders'
+]);
 //# sourceMappingURL=components.js.map
