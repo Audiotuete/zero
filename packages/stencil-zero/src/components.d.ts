@@ -90,8 +90,8 @@ export namespace Components {
         "zIndex"?: string;
     }
     interface ZTableBuilder {
-        "json"?: [];
-        "tableHeaders"?: [];
+        "data": [] | Array<string[]>;
+        "options"?: Array<{ name: string; key: string; width?: string }>;
     }
 }
 declare global {
@@ -211,8 +211,8 @@ declare namespace LocalJSX {
         "zIndex"?: string;
     }
     interface ZTableBuilder {
-        "json"?: [];
-        "tableHeaders"?: [];
+        "data": [] | Array<string[]>;
+        "options"?: Array<{ name: string; key: string; width?: string }>;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

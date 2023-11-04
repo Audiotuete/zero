@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property       | Attribute | Description | Type | Default     |
-| -------------- | --------- | ----------- | ---- | ----------- |
-| `json`         | --        |             | `[]` | `undefined` |
-| `tableHeaders` | --        |             | `[]` | `undefined` |
+| Property            | Attribute | Description | Type                                               | Default     |
+| ------------------- | --------- | ----------- | -------------------------------------------------- | ----------- |
+| `data` _(required)_ | --        |             | `[] \| string[][]`                                 | `undefined` |
+| `options`           | --        |             | `{ name: string; key: string; width?: string; }[]` | `undefined` |
 
 
 ----------------------------------------------
