@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute   | Description | Type     | Default     |
-| ---------- | ----------- | ----------- | -------- | ----------- |
-| `maxWidth` | `max-width` |             | `string` | `undefined` |
-| `ratio`    | `ratio`     |             | `string` | `undefined` |
+| Property             | Attribute   | Description | Type     | Default     |
+| -------------------- | ----------- | ----------- | -------- | ----------- |
+| `maxWidth`           | `max-width` |             | `string` | `undefined` |
+| `ratio` _(required)_ | `ratio`     |             | `string` | `undefined` |
 
 
 ----------------------------------------------

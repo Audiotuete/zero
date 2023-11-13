@@ -8,13 +8,6 @@ import type { JSX } from 'stencil-zero';
 
 
 
-export const MyComponent = /*@__PURE__*/ defineContainer<JSX.MyComponent>('my-component', undefined, [
-  'first',
-  'middle',
-  'last'
-]);
-
-
 export const ZAspectRatio = /*@__PURE__*/ defineContainer<JSX.ZAspectRatio>('z-aspect-ratio', undefined, [
   'ratio',
   'maxWidth'
@@ -55,6 +48,17 @@ export const ZBox = /*@__PURE__*/ defineContainer<JSX.ZBox>('z-box', undefined, 
   'zIndex',
   'boxShadow',
   'background'
+]);
+
+
+export const ZHeading = /*@__PURE__*/ defineContainer<JSX.ZHeading>('z-heading', undefined, [
+  'level',
+  'fontSize',
+  'color',
+  'href',
+  'targetBlank',
+  'spacingTop',
+  'spacingBottom'
 ]);
 
 

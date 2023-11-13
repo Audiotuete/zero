@@ -6,22 +6,154 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
     interface ZAspectRatio {
         "maxWidth": string;
+        "ratio": string;
+    }
+    interface ZBox {
+        "align": 'center' | 'flex-start' | 'flex-end';
+        "as": 'header' | 'footer' | 'main' | 'nav' | 'article' | 'section' | 'search' | 'aside';
+        "background": string;
+        "block": boolean;
+        "border": string;
+        "borderColor": string;
+        "borderRadius": string;
+        "borderStyle": string;
+        "borderWidth": string;
+        "boxShadow": string;
+        "columnGap": string;
+        "cursor": string;
+        "flex": string;
+        "gap": string;
+        "h": string;
+        "justify": 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
+        "m": string;
+        "mb": string;
+        "ml": string;
+        "mr": string;
+        "mt": string;
+        "name": string;
+        "p": string;
+        "pb": string;
+        "pl": string;
+        "pointerEvents": string;
+        "pr": string;
+        "pt": string;
+        "row": boolean;
+        "rowGap": string;
+        "w": string;
+        "wrap": boolean;
+        "zIndex": string;
+    }
+    interface ZHeading {
+        "color": string;
+        "fontSize": string;
+        "href": string;
+        "level": '1' | '2' | '3' | '4' | '5' | '6';
+        "spacingBottom": string;
+        "spacingTop": string;
+        "targetBlank": boolean;
+    }
+    interface ZListBox {
+        "align": 'center' | 'flex-start' | 'flex-end';
+        "background": string;
+        "block": boolean;
+        "border": string;
+        "borderColor": string;
+        "borderRadius": string;
+        "borderStyle": string;
+        "borderWidth": string;
+        "boxShadow": string;
+        "columnGap": string;
+        "cursor": string;
+        "flex": string;
+        "gap": string;
+        "h": string;
+        "justify": 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
+        "m": string;
+        "mb": string;
+        "ml": string;
+        "mr": string;
+        "mt": string;
+        "name": string;
+        "p": string;
+        "pb": string;
+        "pl": string;
+        "pointerEvents": string;
+        "pr": string;
+        "pt": string;
+        "row": boolean;
+        "rowGap": string;
+        "w": string;
+        "wrap": boolean;
+        "zIndex": string;
+    }
+    interface ZListItem {
+        "m": string;
+        "mb": string;
+        "ml": string;
+        "mr": string;
+        "mt": string;
+        "p": string;
+        "pb": string;
+        "pl": string;
+        "pr": string;
+        "pt": string;
+    }
+    interface ZTableBuilder {
+        "data": [] | Array<string[]>;
+        "options"?: Array<{ name: string; key: string; width?: string }>;
+    }
+}
+declare global {
+    interface HTMLZAspectRatioElement extends Components.ZAspectRatio, HTMLStencilElement {
+    }
+    var HTMLZAspectRatioElement: {
+        prototype: HTMLZAspectRatioElement;
+        new (): HTMLZAspectRatioElement;
+    };
+    interface HTMLZBoxElement extends Components.ZBox, HTMLStencilElement {
+    }
+    var HTMLZBoxElement: {
+        prototype: HTMLZBoxElement;
+        new (): HTMLZBoxElement;
+    };
+    interface HTMLZHeadingElement extends Components.ZHeading, HTMLStencilElement {
+    }
+    var HTMLZHeadingElement: {
+        prototype: HTMLZHeadingElement;
+        new (): HTMLZHeadingElement;
+    };
+    interface HTMLZListBoxElement extends Components.ZListBox, HTMLStencilElement {
+    }
+    var HTMLZListBoxElement: {
+        prototype: HTMLZListBoxElement;
+        new (): HTMLZListBoxElement;
+    };
+    interface HTMLZListItemElement extends Components.ZListItem, HTMLStencilElement {
+    }
+    var HTMLZListItemElement: {
+        prototype: HTMLZListItemElement;
+        new (): HTMLZListItemElement;
+    };
+    interface HTMLZTableBuilderElement extends Components.ZTableBuilder, HTMLStencilElement {
+    }
+    var HTMLZTableBuilderElement: {
+        prototype: HTMLZTableBuilderElement;
+        new (): HTMLZTableBuilderElement;
+    };
+    interface HTMLElementTagNameMap {
+        "z-aspect-ratio": HTMLZAspectRatioElement;
+        "z-box": HTMLZBoxElement;
+        "z-heading": HTMLZHeadingElement;
+        "z-list-box": HTMLZListBoxElement;
+        "z-list-item": HTMLZListItemElement;
+        "z-table-builder": HTMLZTableBuilderElement;
+    }
+}
+declare namespace LocalJSX {
+    interface ZAspectRatio {
+        "maxWidth"?: string;
         "ratio": string;
     }
     interface ZBox {
@@ -59,156 +191,14 @@ export namespace Components {
         "wrap"?: boolean;
         "zIndex"?: string;
     }
-    interface ZListBox {
-        "align"?: 'center' | 'flex-start' | 'flex-end';
-        "background"?: string;
-        "block"?: boolean;
-        "border"?: string;
-        "borderColor"?: string;
-        "borderRadius"?: string;
-        "borderStyle"?: string;
-        "borderWidth"?: string;
-        "boxShadow"?: string;
-        "columnGap"?: string;
-        "cursor"?: string;
-        "flex"?: string;
-        "gap"?: string;
-        "h"?: string;
-        "justify"?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
-        "m"?: string;
-        "mb"?: string;
-        "ml"?: string;
-        "mr"?: string;
-        "mt"?: string;
-        "name"?: string;
-        "p"?: string;
-        "pb"?: string;
-        "pl"?: string;
-        "pointerEvents"?: string;
-        "pr"?: string;
-        "pt"?: string;
-        "row"?: boolean;
-        "rowGap"?: string;
-        "w"?: string;
-        "wrap"?: boolean;
-        "zIndex"?: string;
-    }
-    interface ZListItem {
-        "m"?: string;
-        "mb"?: string;
-        "ml"?: string;
-        "mr"?: string;
-        "mt"?: string;
-        "p"?: string;
-        "pb"?: string;
-        "pl"?: string;
-        "pr"?: string;
-        "pt"?: string;
-    }
-    interface ZTableBuilder {
-        "data": [] | Array<string[]>;
-        "options"?: Array<{ name: string; key: string; width?: string }>;
-    }
-}
-declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
-    interface HTMLZAspectRatioElement extends Components.ZAspectRatio, HTMLStencilElement {
-    }
-    var HTMLZAspectRatioElement: {
-        prototype: HTMLZAspectRatioElement;
-        new (): HTMLZAspectRatioElement;
-    };
-    interface HTMLZBoxElement extends Components.ZBox, HTMLStencilElement {
-    }
-    var HTMLZBoxElement: {
-        prototype: HTMLZBoxElement;
-        new (): HTMLZBoxElement;
-    };
-    interface HTMLZListBoxElement extends Components.ZListBox, HTMLStencilElement {
-    }
-    var HTMLZListBoxElement: {
-        prototype: HTMLZListBoxElement;
-        new (): HTMLZListBoxElement;
-    };
-    interface HTMLZListItemElement extends Components.ZListItem, HTMLStencilElement {
-    }
-    var HTMLZListItemElement: {
-        prototype: HTMLZListItemElement;
-        new (): HTMLZListItemElement;
-    };
-    interface HTMLZTableBuilderElement extends Components.ZTableBuilder, HTMLStencilElement {
-    }
-    var HTMLZTableBuilderElement: {
-        prototype: HTMLZTableBuilderElement;
-        new (): HTMLZTableBuilderElement;
-    };
-    interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
-        "z-aspect-ratio": HTMLZAspectRatioElement;
-        "z-box": HTMLZBoxElement;
-        "z-list-box": HTMLZListBoxElement;
-        "z-list-item": HTMLZListItemElement;
-        "z-table-builder": HTMLZTableBuilderElement;
-    }
-}
-declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
-    interface ZAspectRatio {
-        "maxWidth"?: string;
-        "ratio"?: string;
-    }
-    interface ZBox {
-        "align"?: 'center' | 'flex-start' | 'flex-end';
-        "as"?: 'header' | 'footer' | 'main' | 'nav' | 'article' | 'section' | 'search' | 'aside';
-        "background"?: string;
-        "block"?: boolean;
-        "border"?: string;
-        "borderColor"?: string;
-        "borderRadius"?: string;
-        "borderStyle"?: string;
-        "borderWidth"?: string;
-        "boxShadow"?: string;
-        "columnGap"?: string;
-        "cursor"?: string;
-        "flex"?: string;
-        "gap"?: string;
-        "h"?: string;
-        "justify"?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
-        "m"?: string;
-        "mb"?: string;
-        "ml"?: string;
-        "mr"?: string;
-        "mt"?: string;
-        "name"?: string;
-        "p"?: string;
-        "pb"?: string;
-        "pl"?: string;
-        "pointerEvents"?: string;
-        "pr"?: string;
-        "pt"?: string;
-        "row"?: boolean;
-        "rowGap"?: string;
-        "w"?: string;
-        "wrap"?: boolean;
-        "zIndex"?: string;
+    interface ZHeading {
+        "color"?: string;
+        "fontSize"?: string;
+        "href"?: string;
+        "level": '1' | '2' | '3' | '4' | '5' | '6';
+        "spacingBottom"?: string;
+        "spacingTop"?: string;
+        "targetBlank"?: boolean;
     }
     interface ZListBox {
         "align"?: 'center' | 'flex-start' | 'flex-end';
@@ -261,9 +251,9 @@ declare namespace LocalJSX {
         "options"?: Array<{ name: string; key: string; width?: string }>;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "z-aspect-ratio": ZAspectRatio;
         "z-box": ZBox;
+        "z-heading": ZHeading;
         "z-list-box": ZListBox;
         "z-list-item": ZListItem;
         "z-table-builder": ZTableBuilder;
@@ -273,9 +263,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "z-aspect-ratio": LocalJSX.ZAspectRatio & JSXBase.HTMLAttributes<HTMLZAspectRatioElement>;
             "z-box": LocalJSX.ZBox & JSXBase.HTMLAttributes<HTMLZBoxElement>;
+            "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-list-box": LocalJSX.ZListBox & JSXBase.HTMLAttributes<HTMLZListBoxElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
             "z-table-builder": LocalJSX.ZTableBuilder & JSXBase.HTMLAttributes<HTMLZTableBuilderElement>;
