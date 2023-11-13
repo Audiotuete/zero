@@ -59,7 +59,6 @@ export const ZBox = /*@__PURE__*/ defineContainer<JSX.ZBox>('z-box', undefined, 
 
 
 export const ZListBox = /*@__PURE__*/ defineContainer<JSX.ZListBox>('z-list-box', undefined, [
-  'orderedList',
   'name',
   'h',
   'w',

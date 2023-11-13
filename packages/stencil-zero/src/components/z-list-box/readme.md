@@ -30,7 +30,6 @@
 | `mr`            | `mr`             |             | `string`                                                                                        | `undefined` |
 | `mt`            | `mt`             |             | `string`                                                                                        | `undefined` |
 | `name`          | `name`           |             | `string`                                                                                        | `undefined` |
-| `orderedList`   | `ordered-list`   |             | `boolean`                                                                                       | `undefined` |
 | `p`             | `p`              |             | `string`                                                                                        | `undefined` |
 | `pb`            | `pb`             |             | `string`                                                                                        | `undefined` |
 | `pl`            | `pl`             |             | `string`                                                                                        | `undefined` |

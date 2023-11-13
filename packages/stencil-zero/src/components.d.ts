@@ -81,7 +81,6 @@ export namespace Components {
         "mr"?: string;
         "mt"?: string;
         "name"?: string;
-        "orderedList"?: boolean;
         "p"?: string;
         "pb"?: string;
         "pl"?: string;
@@ -233,7 +232,6 @@ declare namespace LocalJSX {
         "mr"?: string;
         "mt"?: string;
         "name"?: string;
-        "orderedList"?: boolean;
         "p"?: string;
         "pb"?: string;
         "pl"?: string;

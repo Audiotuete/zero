@@ -1,4 +1,4 @@
-import { Component, Prop, State, Element, h } from '@stencil/core'
+import { Component, Prop, State, Element, Host, h } from '@stencil/core'
 import { styleBoxWithProps, enableColoredBoxes } from '../../utils/box'
 
 @Component({
@@ -7,8 +7,6 @@ import { styleBoxWithProps, enableColoredBoxes } from '../../utils/box'
   shadow: true,
 })
 export class ListBox {
-  @Prop() orderedList?: boolean
-
   @Prop() name?: string
   @Prop() h?: string
   @Prop() w?: string
@@ -50,29 +48,15 @@ export class ListBox {
   }
 
   render() {
-    const Content = () => {
-      return [
-        <slot></slot>,
-        this.name && (
+    return (
+      <Host role="list" style={styleBoxWithProps(this)}>
+        <slot></slot>
+        {this.name && (
           <span role="none" class="box-label" style={{ color: this.boxColor }}>
             {this.name}
           </span>
-        ),
-      ]
-    }
-
-    if (!this.orderedList) {
-      return (
-        <ul style={styleBoxWithProps(this)}>
-          <Content></Content>
-        </ul>
-      )
-    } else {
-      return (
-        <ol style={styleBoxWithProps(this)}>
-          <Content></Content>
-        </ol>
-      )
-    }
+        )}
+      </Host>
+    )
   }
 }
