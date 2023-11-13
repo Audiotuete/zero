@@ -6,7 +6,7 @@ import { Component, Prop, Host, h } from '@stencil/core'
   shadow: false,
 })
 export class AspectRatio {
-  @Prop() ratio: string
+  @Prop() ratio!: string
   @Prop() maxWidth: string
 
   calculatePaddingTop = () => {

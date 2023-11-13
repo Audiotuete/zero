@@ -5,16 +5,16 @@ import { styleBoxWithProps } from '../../utils/box'
   tag: 'z-list-item',
 })
 export class ListItem {
-  @Prop() m?: string
-  @Prop() mt?: string
-  @Prop() mb?: string
-  @Prop() mr?: string
-  @Prop() ml?: string
-  @Prop() p?: string
-  @Prop() pt?: string
-  @Prop() pb?: string
-  @Prop() pr?: string
-  @Prop() pl?: string
+  @Prop() m: string
+  @Prop() mt: string
+  @Prop() mb: string
+  @Prop() mr: string
+  @Prop() ml: string
+  @Prop() p: string
+  @Prop() pt: string
+  @Prop() pb: string
+  @Prop() pr: string
+  @Prop() pl: string
 
   render() {
     return (
