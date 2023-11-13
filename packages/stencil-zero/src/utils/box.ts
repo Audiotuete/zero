@@ -51,7 +51,7 @@ export function styleBoxWithProps(comp) {
 }
 
 export function getParentBoxesCount(el: HTMLElement, counter) {
-  if (el.parentElement.tagName === 'BODY') {
+  if (el.parentElement.tagName === 'HTML') {
     return `_${counter}`
   } else if (el.tagName.includes('BOX') && el.hasAttribute('name')) {
     counter++
@@ -65,16 +65,17 @@ export function enableColoredBoxes(comp) {
   if (!comp.root.hasAttribute('name')) return ''
 
   const boxLevelColors = {
-    _1: '#6876FC',
-    _2: '#38BDF8',
-    _3: '#01B598',
-    _4: '#99DA2F',
-    _5: '#FBBF24',
-    _6: '#FB923D',
-    _7: '#F472B6',
-    _8: '#C084FC',
-    _9: '#9A1799',
-    _10: '#595959',
+    _1: '#000000',
+    _2: '#6876FC',
+    _3: '#38BDF8',
+    _4: '#01B598',
+    _5: '#99DA2F',
+    _6: '#FBBF24',
+    _7: '#FB923D',
+    _8: '#F472B6',
+    _9: '#C084FC',
+    _10: '#9A1799',
+    _11: '#595959',
   }
 
   let boxColor = boxLevelColors[getParentBoxesCount(comp.root, 0)]
