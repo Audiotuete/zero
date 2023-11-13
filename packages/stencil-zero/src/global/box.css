@@ -7,13 +7,6 @@
   position: relative;
 }
 
-ul,
-ol {
-  display: flex;
-  padding: 0;
-  margin: 0;
-}
-
 .box-label {
   position: absolute;
   font-size: 80%;
