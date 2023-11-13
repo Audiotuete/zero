@@ -15,6 +15,12 @@ export const MyComponent = /*@__PURE__*/ defineContainer<JSX.MyComponent>('my-co
 ]);
 
 
+export const ZAspectRatio = /*@__PURE__*/ defineContainer<JSX.ZAspectRatio>('z-aspect-ratio', undefined, [
+  'ratio',
+  'maxWidth'
+]);
+
+
 export const ZBox = /*@__PURE__*/ defineContainer<JSX.ZBox>('z-box', undefined, [
   'name',
   'as',
@@ -52,7 +58,8 @@ export const ZBox = /*@__PURE__*/ defineContainer<JSX.ZBox>('z-box', undefined, 
 ]);
 
 
-export const ZListItemBox = /*@__PURE__*/ defineContainer<JSX.ZListItemBox>('z-list-item-box', undefined, [
+export const ZListBox = /*@__PURE__*/ defineContainer<JSX.ZListBox>('z-list-box', undefined, [
+  'orderedList',
   'name',
   'h',
   'w',
@@ -85,6 +92,20 @@ export const ZListItemBox = /*@__PURE__*/ defineContainer<JSX.ZListItemBox>('z-l
   'zIndex',
   'boxShadow',
   'background'
+]);
+
+
+export const ZListItem = /*@__PURE__*/ defineContainer<JSX.ZListItem>('z-list-item', undefined, [
+  'm',
+  'mt',
+  'mb',
+  'mr',
+  'ml',
+  'p',
+  'pt',
+  'pb',
+  'pr',
+  'pl'
 ]);
 
 

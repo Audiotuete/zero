@@ -20,6 +20,10 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface ZAspectRatio {
+        "maxWidth": string;
+        "ratio": string;
+    }
     interface ZBox {
         "align"?: 'center' | 'flex-start' | 'flex-end';
         "as"?: 'header' | 'footer' | 'main' | 'nav' | 'article' | 'section' | 'search' | 'aside';
@@ -55,7 +59,7 @@ export namespace Components {
         "wrap"?: boolean;
         "zIndex"?: string;
     }
-    interface ZListItemBox {
+    interface ZListBox {
         "align"?: 'center' | 'flex-start' | 'flex-end';
         "background"?: string;
         "block"?: boolean;
@@ -77,6 +81,7 @@ export namespace Components {
         "mr"?: string;
         "mt"?: string;
         "name"?: string;
+        "orderedList"?: boolean;
         "p"?: string;
         "pb"?: string;
         "pl"?: string;
@@ -88,6 +93,18 @@ export namespace Components {
         "w"?: string;
         "wrap"?: boolean;
         "zIndex"?: string;
+    }
+    interface ZListItem {
+        "m"?: string;
+        "mb"?: string;
+        "ml"?: string;
+        "mr"?: string;
+        "mt"?: string;
+        "p"?: string;
+        "pb"?: string;
+        "pl"?: string;
+        "pr"?: string;
+        "pt"?: string;
     }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
@@ -101,17 +118,29 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLZAspectRatioElement extends Components.ZAspectRatio, HTMLStencilElement {
+    }
+    var HTMLZAspectRatioElement: {
+        prototype: HTMLZAspectRatioElement;
+        new (): HTMLZAspectRatioElement;
+    };
     interface HTMLZBoxElement extends Components.ZBox, HTMLStencilElement {
     }
     var HTMLZBoxElement: {
         prototype: HTMLZBoxElement;
         new (): HTMLZBoxElement;
     };
-    interface HTMLZListItemBoxElement extends Components.ZListItemBox, HTMLStencilElement {
+    interface HTMLZListBoxElement extends Components.ZListBox, HTMLStencilElement {
     }
-    var HTMLZListItemBoxElement: {
-        prototype: HTMLZListItemBoxElement;
-        new (): HTMLZListItemBoxElement;
+    var HTMLZListBoxElement: {
+        prototype: HTMLZListBoxElement;
+        new (): HTMLZListBoxElement;
+    };
+    interface HTMLZListItemElement extends Components.ZListItem, HTMLStencilElement {
+    }
+    var HTMLZListItemElement: {
+        prototype: HTMLZListItemElement;
+        new (): HTMLZListItemElement;
     };
     interface HTMLZTableBuilderElement extends Components.ZTableBuilder, HTMLStencilElement {
     }
@@ -121,8 +150,10 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "z-aspect-ratio": HTMLZAspectRatioElement;
         "z-box": HTMLZBoxElement;
-        "z-list-item-box": HTMLZListItemBoxElement;
+        "z-list-box": HTMLZListBoxElement;
+        "z-list-item": HTMLZListItemElement;
         "z-table-builder": HTMLZTableBuilderElement;
     }
 }
@@ -141,6 +172,10 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface ZAspectRatio {
+        "maxWidth"?: string;
+        "ratio"?: string;
+    }
     interface ZBox {
         "align"?: 'center' | 'flex-start' | 'flex-end';
         "as"?: 'header' | 'footer' | 'main' | 'nav' | 'article' | 'section' | 'search' | 'aside';
@@ -176,7 +211,7 @@ declare namespace LocalJSX {
         "wrap"?: boolean;
         "zIndex"?: string;
     }
-    interface ZListItemBox {
+    interface ZListBox {
         "align"?: 'center' | 'flex-start' | 'flex-end';
         "background"?: string;
         "block"?: boolean;
@@ -198,6 +233,7 @@ declare namespace LocalJSX {
         "mr"?: string;
         "mt"?: string;
         "name"?: string;
+        "orderedList"?: boolean;
         "p"?: string;
         "pb"?: string;
         "pl"?: string;
@@ -210,14 +246,28 @@ declare namespace LocalJSX {
         "wrap"?: boolean;
         "zIndex"?: string;
     }
+    interface ZListItem {
+        "m"?: string;
+        "mb"?: string;
+        "ml"?: string;
+        "mr"?: string;
+        "mt"?: string;
+        "p"?: string;
+        "pb"?: string;
+        "pl"?: string;
+        "pr"?: string;
+        "pt"?: string;
+    }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
         "options"?: Array<{ name: string; key: string; width?: string }>;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "z-aspect-ratio": ZAspectRatio;
         "z-box": ZBox;
-        "z-list-item-box": ZListItemBox;
+        "z-list-box": ZListBox;
+        "z-list-item": ZListItem;
         "z-table-builder": ZTableBuilder;
     }
 }
@@ -226,8 +276,10 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "z-aspect-ratio": LocalJSX.ZAspectRatio & JSXBase.HTMLAttributes<HTMLZAspectRatioElement>;
             "z-box": LocalJSX.ZBox & JSXBase.HTMLAttributes<HTMLZBoxElement>;
-            "z-list-item-box": LocalJSX.ZListItemBox & JSXBase.HTMLAttributes<HTMLZListItemBoxElement>;
+            "z-list-box": LocalJSX.ZListBox & JSXBase.HTMLAttributes<HTMLZListBoxElement>;
+            "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
             "z-table-builder": LocalJSX.ZTableBuilder & JSXBase.HTMLAttributes<HTMLZTableBuilderElement>;
         }
     }

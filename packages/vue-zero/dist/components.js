@@ -4,6 +4,10 @@ export const MyComponent = defineContainer('my-component', undefined, [
     'middle',
     'last'
 ]);
+export const ZAspectRatio = defineContainer('z-aspect-ratio', undefined, [
+    'ratio',
+    'maxWidth'
+]);
 export const ZBox = defineContainer('z-box', undefined, [
     'name',
     'as',
@@ -39,7 +43,8 @@ export const ZBox = defineContainer('z-box', undefined, [
     'boxShadow',
     'background'
 ]);
-export const ZListItemBox = defineContainer('z-list-item-box', undefined, [
+export const ZListBox = defineContainer('z-list-box', undefined, [
+    'orderedList',
     'name',
     'h',
     'w',
@@ -72,6 +77,18 @@ export const ZListItemBox = defineContainer('z-list-item-box', undefined, [
     'zIndex',
     'boxShadow',
     'background'
+]);
+export const ZListItem = defineContainer('z-list-item', undefined, [
+    'm',
+    'mt',
+    'mb',
+    'mr',
+    'ml',
+    'p',
+    'pt',
+    'pb',
+    'pr',
+    'pl'
 ]);
 export const ZTableBuilder = defineContainer('z-table-builder', undefined, [
     'data',
