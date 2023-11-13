@@ -38,6 +38,33 @@ const options = [
 </script>
 
 <template>
+  <!-- HEADINGS -->
+  <z-heading
+    level="1"
+    font-size="3rem"
+    href="https://chakra-ui.com/docs/components/button"
+    target-blank
+    spacing-top="2em"
+    spacing-bottom="4rem"
+    color="blue"
+    >Hello</z-heading
+  >
+  <z-heading level="2">Hello</z-heading>
+  <z-heading level="3">Hello</z-heading>
+  <z-heading level="4">Hello</z-heading>
+  <z-heading level="5">Hello</z-heading>
+  <z-heading level="6">Hello</z-heading>
+
+  <!-- ASPECT RATIO -->
+  <z-aspect-ratio
+    ratio="16:9"
+    max-width="500px"
+  >
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng"
+    />
+  </z-aspect-ratio>
+
   <!-- TABLE BUILDER -->
   <z-box
     w="100vw"
@@ -49,6 +76,7 @@ const options = [
     ></z-table-builder
   ></z-box>
   <button @click="fetchJSON()">Fetch JSON</button>
+
   <!-- BOX LAYOUT -->
   <z-box
     w="400px"
@@ -100,26 +128,26 @@ const options = [
         gap="10px"
         justify="center"
       >
-        <z-list-item-box
+        <z-box
           name="Stat"
           w="180px"
           h="180px"
-        ></z-list-item-box>
-        <z-list-item-box
+        ></z-box>
+        <z-box
           name="Stat"
           w="180px"
           h="180px"
-        ></z-list-item-box>
-        <z-list-item-box
+        ></z-box>
+        <z-box
           name="Stat"
           w="180px"
           h="180px"
-        ></z-list-item-box>
-        <z-list-item-box
+        ></z-box>
+        <z-box
           name="Stat"
           w="180px"
           h="180px"
-        ></z-list-item-box>
+        ></z-box>
       </z-box>
     </z-box>
     <z-box
