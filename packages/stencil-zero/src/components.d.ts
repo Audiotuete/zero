@@ -5,45 +5,17 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { BoxStyles, SpaceStyles } from "./types/layout";
+export { BoxStyles, SpaceStyles } from "./types/layout";
 export namespace Components {
     interface ZAspectRatio {
         "maxWidth": string;
         "ratio": string;
     }
     interface ZBox {
-        "align": 'center' | 'flex-start' | 'flex-end';
-        "as": 'header' | 'footer' | 'main' | 'nav' | 'article' | 'section' | 'search' | 'aside';
-        "background": string;
-        "block": boolean;
-        "border": string;
-        "borderColor": string;
-        "borderRadius": string;
-        "borderStyle": string;
-        "borderWidth": string;
-        "boxShadow": string;
-        "columnGap": string;
-        "cursor": string;
-        "flex": string;
-        "gap": string;
-        "h": string;
-        "justify": 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
-        "m": string;
-        "mb": string;
-        "ml": string;
-        "mr": string;
-        "mt": string;
+        "as": string;
+        "boxStyles": BoxStyles;
         "name": string;
-        "p": string;
-        "pb": string;
-        "pl": string;
-        "pointerEvents": string;
-        "pr": string;
-        "pt": string;
-        "row": boolean;
-        "rowGap": string;
-        "w": string;
-        "wrap": boolean;
-        "zIndex": string;
     }
     interface ZHeading {
         "color": string;
@@ -68,50 +40,11 @@ export namespace Components {
         "underline": boolean;
     }
     interface ZListBox {
-        "align": 'center' | 'flex-start' | 'flex-end';
-        "background": string;
-        "block": boolean;
-        "border": string;
-        "borderColor": string;
-        "borderRadius": string;
-        "borderStyle": string;
-        "borderWidth": string;
-        "boxShadow": string;
-        "columnGap": string;
-        "cursor": string;
-        "flex": string;
-        "gap": string;
-        "h": string;
-        "justify": 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
-        "m": string;
-        "mb": string;
-        "ml": string;
-        "mr": string;
-        "mt": string;
+        "boxStyles": BoxStyles;
         "name": string;
-        "p": string;
-        "pb": string;
-        "pl": string;
-        "pointerEvents": string;
-        "pr": string;
-        "pt": string;
-        "row": boolean;
-        "rowGap": string;
-        "w": string;
-        "wrap": boolean;
-        "zIndex": string;
     }
     interface ZListItem {
-        "m": string;
-        "mb": string;
-        "ml": string;
-        "mr": string;
-        "mt": string;
-        "p": string;
-        "pb": string;
-        "pl": string;
-        "pr": string;
-        "pt": string;
+        "spaceStyles": SpaceStyles;
     }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
@@ -193,39 +126,9 @@ declare namespace LocalJSX {
         "ratio": string;
     }
     interface ZBox {
-        "align"?: 'center' | 'flex-start' | 'flex-end';
-        "as"?: 'header' | 'footer' | 'main' | 'nav' | 'article' | 'section' | 'search' | 'aside';
-        "background"?: string;
-        "block"?: boolean;
-        "border"?: string;
-        "borderColor"?: string;
-        "borderRadius"?: string;
-        "borderStyle"?: string;
-        "borderWidth"?: string;
-        "boxShadow"?: string;
-        "columnGap"?: string;
-        "cursor"?: string;
-        "flex"?: string;
-        "gap"?: string;
-        "h"?: string;
-        "justify"?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
-        "m"?: string;
-        "mb"?: string;
-        "ml"?: string;
-        "mr"?: string;
-        "mt"?: string;
+        "as"?: string;
+        "boxStyles"?: BoxStyles;
         "name"?: string;
-        "p"?: string;
-        "pb"?: string;
-        "pl"?: string;
-        "pointerEvents"?: string;
-        "pr"?: string;
-        "pt"?: string;
-        "row"?: boolean;
-        "rowGap"?: string;
-        "w"?: string;
-        "wrap"?: boolean;
-        "zIndex"?: string;
     }
     interface ZHeading {
         "color"?: string;
@@ -250,50 +153,11 @@ declare namespace LocalJSX {
         "underline"?: boolean;
     }
     interface ZListBox {
-        "align"?: 'center' | 'flex-start' | 'flex-end';
-        "background"?: string;
-        "block"?: boolean;
-        "border"?: string;
-        "borderColor"?: string;
-        "borderRadius"?: string;
-        "borderStyle"?: string;
-        "borderWidth"?: string;
-        "boxShadow"?: string;
-        "columnGap"?: string;
-        "cursor"?: string;
-        "flex"?: string;
-        "gap"?: string;
-        "h"?: string;
-        "justify"?: 'center' | 'flex-start' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly';
-        "m"?: string;
-        "mb"?: string;
-        "ml"?: string;
-        "mr"?: string;
-        "mt"?: string;
+        "boxStyles"?: BoxStyles;
         "name"?: string;
-        "p"?: string;
-        "pb"?: string;
-        "pl"?: string;
-        "pointerEvents"?: string;
-        "pr"?: string;
-        "pt"?: string;
-        "row"?: boolean;
-        "rowGap"?: string;
-        "w"?: string;
-        "wrap"?: boolean;
-        "zIndex"?: string;
     }
     interface ZListItem {
-        "m"?: string;
-        "mb"?: string;
-        "ml"?: string;
-        "mr"?: string;
-        "mt"?: string;
-        "p"?: string;
-        "pb"?: string;
-        "pl"?: string;
-        "pr"?: string;
-        "pt"?: string;
+        "spaceStyles"?: SpaceStyles;
     }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;

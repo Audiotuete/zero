@@ -17,37 +17,7 @@ export const ZAspectRatio = /*@__PURE__*/ defineContainer<JSX.ZAspectRatio>('z-a
 export const ZBox = /*@__PURE__*/ defineContainer<JSX.ZBox>('z-box', undefined, [
   'name',
   'as',
-  'h',
-  'w',
-  'm',
-  'mt',
-  'mb',
-  'mr',
-  'ml',
-  'p',
-  'pt',
-  'pb',
-  'pr',
-  'pl',
-  'flex',
-  'row',
-  'block',
-  'justify',
-  'align',
-  'gap',
-  'rowGap',
-  'columnGap',
-  'wrap',
-  'border',
-  'borderWidth',
-  'borderStyle',
-  'borderColor',
-  'borderRadius',
-  'cursor',
-  'pointerEvents',
-  'zIndex',
-  'boxShadow',
-  'background'
+  'boxStyles'
 ]);
 
 
@@ -79,51 +49,12 @@ export const ZHighlight = /*@__PURE__*/ defineContainer<JSX.ZHighlight>('z-highl
 
 export const ZListBox = /*@__PURE__*/ defineContainer<JSX.ZListBox>('z-list-box', undefined, [
   'name',
-  'h',
-  'w',
-  'm',
-  'mt',
-  'mb',
-  'mr',
-  'ml',
-  'p',
-  'pt',
-  'pb',
-  'pr',
-  'pl',
-  'flex',
-  'row',
-  'block',
-  'justify',
-  'align',
-  'gap',
-  'rowGap',
-  'columnGap',
-  'wrap',
-  'border',
-  'borderWidth',
-  'borderStyle',
-  'borderColor',
-  'borderRadius',
-  'cursor',
-  'pointerEvents',
-  'zIndex',
-  'boxShadow',
-  'background'
+  'boxStyles'
 ]);
 
 
 export const ZListItem = /*@__PURE__*/ defineContainer<JSX.ZListItem>('z-list-item', undefined, [
-  'm',
-  'mt',
-  'mb',
-  'mr',
-  'ml',
-  'p',
-  'pt',
-  'pb',
-  'pr',
-  'pl'
+  'spaceStyles'
 ]);
 
 
