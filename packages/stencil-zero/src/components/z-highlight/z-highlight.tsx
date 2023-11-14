@@ -18,7 +18,7 @@ export class Highlight {
   @Prop() sub: boolean // <sub>
   @Prop() mark: boolean // <mark>
 
-  mapPropsToTags = properties => {
+  mapPropsToTags(properties) {
     const tagMap: any = {
       bold: 'strong',
       italic: 'em',
