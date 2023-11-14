@@ -62,6 +62,21 @@ export const ZHeading = /*@__PURE__*/ defineContainer<JSX.ZHeading>('z-heading',
 ]);
 
 
+export const ZHighlight = /*@__PURE__*/ defineContainer<JSX.ZHighlight>('z-highlight', undefined, [
+  'fontSize',
+  'color',
+  'transform',
+  'bold',
+  'italic',
+  'code',
+  'strike',
+  'underline',
+  'sup',
+  'sub',
+  'mark'
+]);
+
+
 export const ZListBox = /*@__PURE__*/ defineContainer<JSX.ZListBox>('z-list-box', undefined, [
   'name',
   'h',

@@ -54,6 +54,19 @@ export namespace Components {
         "spacingTop": string;
         "targetBlank": boolean;
     }
+    interface ZHighlight {
+        "bold": boolean;
+        "code": boolean;
+        "color": string;
+        "fontSize": string;
+        "italic": boolean;
+        "mark": boolean;
+        "strike": boolean;
+        "sub": boolean;
+        "sup": boolean;
+        "transform": 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana';
+        "underline": boolean;
+    }
     interface ZListBox {
         "align": 'center' | 'flex-start' | 'flex-end';
         "background": string;
@@ -124,6 +137,12 @@ declare global {
         prototype: HTMLZHeadingElement;
         new (): HTMLZHeadingElement;
     };
+    interface HTMLZHighlightElement extends Components.ZHighlight, HTMLStencilElement {
+    }
+    var HTMLZHighlightElement: {
+        prototype: HTMLZHighlightElement;
+        new (): HTMLZHighlightElement;
+    };
     interface HTMLZListBoxElement extends Components.ZListBox, HTMLStencilElement {
     }
     var HTMLZListBoxElement: {
@@ -146,6 +165,7 @@ declare global {
         "z-aspect-ratio": HTMLZAspectRatioElement;
         "z-box": HTMLZBoxElement;
         "z-heading": HTMLZHeadingElement;
+        "z-highlight": HTMLZHighlightElement;
         "z-list-box": HTMLZListBoxElement;
         "z-list-item": HTMLZListItemElement;
         "z-table-builder": HTMLZTableBuilderElement;
@@ -199,6 +219,19 @@ declare namespace LocalJSX {
         "spacingBottom"?: string;
         "spacingTop"?: string;
         "targetBlank"?: boolean;
+    }
+    interface ZHighlight {
+        "bold"?: boolean;
+        "code"?: boolean;
+        "color"?: string;
+        "fontSize"?: string;
+        "italic"?: boolean;
+        "mark"?: boolean;
+        "strike"?: boolean;
+        "sub"?: boolean;
+        "sup"?: boolean;
+        "transform"?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana';
+        "underline"?: boolean;
     }
     interface ZListBox {
         "align"?: 'center' | 'flex-start' | 'flex-end';
@@ -254,6 +287,7 @@ declare namespace LocalJSX {
         "z-aspect-ratio": ZAspectRatio;
         "z-box": ZBox;
         "z-heading": ZHeading;
+        "z-highlight": ZHighlight;
         "z-list-box": ZListBox;
         "z-list-item": ZListItem;
         "z-table-builder": ZTableBuilder;
@@ -266,6 +300,7 @@ declare module "@stencil/core" {
             "z-aspect-ratio": LocalJSX.ZAspectRatio & JSXBase.HTMLAttributes<HTMLZAspectRatioElement>;
             "z-box": LocalJSX.ZBox & JSXBase.HTMLAttributes<HTMLZBoxElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
+            "z-highlight": LocalJSX.ZHighlight & JSXBase.HTMLAttributes<HTMLZHighlightElement>;
             "z-list-box": LocalJSX.ZListBox & JSXBase.HTMLAttributes<HTMLZListBoxElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
             "z-table-builder": LocalJSX.ZTableBuilder & JSXBase.HTMLAttributes<HTMLZTableBuilderElement>;
