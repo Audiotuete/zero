@@ -132,3 +132,14 @@ export const ZTableBuilder = /*@__PURE__*/ defineContainer<JSX.ZTableBuilder>('z
   'options'
 ]);
 
+
+export const ZText = /*@__PURE__*/ defineContainer<JSX.ZText>('z-text', undefined, [
+  'fontSize',
+  'color',
+  'textAlign',
+  'transform',
+  'inline',
+  'hyphens',
+  'lineHeight'
+]);
+

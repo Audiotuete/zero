@@ -117,6 +117,15 @@ export namespace Components {
         "data": [] | Array<string[]>;
         "options"?: Array<{ name: string; key: string; width?: string }>;
     }
+    interface ZText {
+        "color": string;
+        "fontSize": string;
+        "hyphens": boolean;
+        "inline": boolean;
+        "lineHeight": string;
+        "textAlign": 'center' | 'right' | 'left' | 'justify';
+        "transform": 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana';
+    }
 }
 declare global {
     interface HTMLZAspectRatioElement extends Components.ZAspectRatio, HTMLStencilElement {
@@ -161,6 +170,12 @@ declare global {
         prototype: HTMLZTableBuilderElement;
         new (): HTMLZTableBuilderElement;
     };
+    interface HTMLZTextElement extends Components.ZText, HTMLStencilElement {
+    }
+    var HTMLZTextElement: {
+        prototype: HTMLZTextElement;
+        new (): HTMLZTextElement;
+    };
     interface HTMLElementTagNameMap {
         "z-aspect-ratio": HTMLZAspectRatioElement;
         "z-box": HTMLZBoxElement;
@@ -169,6 +184,7 @@ declare global {
         "z-list-box": HTMLZListBoxElement;
         "z-list-item": HTMLZListItemElement;
         "z-table-builder": HTMLZTableBuilderElement;
+        "z-text": HTMLZTextElement;
     }
 }
 declare namespace LocalJSX {
@@ -283,6 +299,15 @@ declare namespace LocalJSX {
         "data": [] | Array<string[]>;
         "options"?: Array<{ name: string; key: string; width?: string }>;
     }
+    interface ZText {
+        "color"?: string;
+        "fontSize"?: string;
+        "hyphens"?: boolean;
+        "inline"?: boolean;
+        "lineHeight"?: string;
+        "textAlign"?: 'center' | 'right' | 'left' | 'justify';
+        "transform"?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana';
+    }
     interface IntrinsicElements {
         "z-aspect-ratio": ZAspectRatio;
         "z-box": ZBox;
@@ -291,6 +316,7 @@ declare namespace LocalJSX {
         "z-list-box": ZListBox;
         "z-list-item": ZListItem;
         "z-table-builder": ZTableBuilder;
+        "z-text": ZText;
     }
 }
 export { LocalJSX as JSX };
@@ -304,6 +330,7 @@ declare module "@stencil/core" {
             "z-list-box": LocalJSX.ZListBox & JSXBase.HTMLAttributes<HTMLZListBoxElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
             "z-table-builder": LocalJSX.ZTableBuilder & JSXBase.HTMLAttributes<HTMLZTableBuilderElement>;
+            "z-text": LocalJSX.ZText & JSXBase.HTMLAttributes<HTMLZTextElement>;
         }
     }
 }
