@@ -1,4 +1,4 @@
-import { Component, Prop, Host, h } from '@stencil/core'
+import { Component, Prop, h } from '@stencil/core'
 
 @Component({
   tag: 'z-heading',
@@ -18,24 +18,22 @@ export class Heading {
     const HeadingTag = `h${this.level}`
 
     return (
-      <Host>
-        <HeadingTag
-          style={{
-            fontSize: this.fontSize,
-            color: this.color,
-            marginTop: this.spacingTop,
-            marginBottom: this.fontSize && !this.spacingBottom ? (parseInt(this.fontSize) / 2).toString() + 'rem' : this.spacingBottom,
-          }}
-        >
-          {this.href ? (
-            <a href={this.href} target={this.targetBlank && '_blank'} style={{ color: this.color }}>
-              <slot></slot>
-            </a>
-          ) : (
+      <HeadingTag
+        style={{
+          fontSize: this.fontSize,
+          color: this.color,
+          marginTop: this.spacingTop,
+          marginBottom: this.fontSize && !this.spacingBottom ? (parseInt(this.fontSize) / 2).toString() + 'rem' : this.spacingBottom,
+        }}
+      >
+        {this.href ? (
+          <a href={this.href} target={this.targetBlank && '_blank'} style={{ color: this.color }}>
             <slot></slot>
-          )}
-        </HeadingTag>
-      </Host>
+          </a>
+        ) : (
+          <slot></slot>
+        )}
+      </HeadingTag>
     )
   }
 }
