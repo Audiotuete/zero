@@ -14,7 +14,9 @@
 | `color`     | `color`     |             | `string`                                                                                   | `undefined` |
 | `fontSize`  | `font-size` |             | `string`                                                                                   | `undefined` |
 | `italic`    | `italic`    |             | `boolean`                                                                                  | `undefined` |
+| `m`         | `m`         |             | `string`                                                                                   | `undefined` |
 | `mark`      | `mark`      |             | `boolean`                                                                                  | `undefined` |
+| `p`         | `p`         |             | `string`                                                                                   | `undefined` |
 | `strike`    | `strike`    |             | `boolean`                                                                                  | `undefined` |
 | `sub`       | `sub`       |             | `boolean`                                                                                  | `undefined` |
 | `sup`       | `sup`       |             | `boolean`                                                                                  | `undefined` |

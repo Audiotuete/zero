@@ -1,4 +1,4 @@
-// export interface SpaceStyles {
+// export interface SpacingStyles {
 //   m: string
 //   mt: string
 //   mb: string

@@ -1,4 +1,5 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, Prop, Host, h } from '@stencil/core'
+import { applySpacingStyles } from '../../utils/layout'
 
 @Component({
   tag: 'z-highlight',
@@ -17,6 +18,9 @@ export class Highlight {
   @Prop() sup: boolean // <sup>
   @Prop() sub: boolean // <sub>
   @Prop() mark: boolean // <mark>
+  // Spacing Styles
+  @Prop() m: string
+  @Prop() p: string
 
   mapPropsToTags(properties) {
     const tagMap: any = {
@@ -56,6 +60,10 @@ export class Highlight {
       return this.nestSlot(this.mapPropsToTags(this))
     }
 
-    return <WrappedSlot></WrappedSlot>
+    return (
+      <Host style={applySpacingStyles(this)}>
+        <WrappedSlot></WrappedSlot>
+      </Host>
+    )
   }
 }

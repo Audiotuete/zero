@@ -10,7 +10,9 @@ import type { JSX } from 'stencil-zero';
 
 export const ZAspectRatio = /*@__PURE__*/ defineContainer<JSX.ZAspectRatio>('z-aspect-ratio', undefined, [
   'ratio',
-  'maxWidth'
+  'maxWidth',
+  'm',
+  'p'
 ]);
 
 
@@ -58,7 +60,9 @@ export const ZHeading = /*@__PURE__*/ defineContainer<JSX.ZHeading>('z-heading',
   'href',
   'targetBlank',
   'spacingTop',
-  'spacingBottom'
+  'spacingBottom',
+  'm',
+  'p'
 ]);
 
 
@@ -73,7 +77,9 @@ export const ZHighlight = /*@__PURE__*/ defineContainer<JSX.ZHighlight>('z-highl
   'underline',
   'sup',
   'sub',
-  'mark'
+  'mark',
+  'm',
+  'p'
 ]);
 
 
@@ -121,7 +127,9 @@ export const ZListItem = /*@__PURE__*/ defineContainer<JSX.ZListItem>('z-list-it
 
 export const ZTableBuilder = /*@__PURE__*/ defineContainer<JSX.ZTableBuilder>('z-table-builder', undefined, [
   'data',
-  'options'
+  'options',
+  'm',
+  'p'
 ]);
 
 
@@ -132,6 +140,8 @@ export const ZText = /*@__PURE__*/ defineContainer<JSX.ZText>('z-text', undefine
   'transform',
   'inline',
   'hyphens',
-  'lineHeight'
+  'lineHeight',
+  'm',
+  'p'
 ]);
 

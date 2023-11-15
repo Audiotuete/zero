@@ -1,4 +1,5 @@
-import { Component, Prop, h } from '@stencil/core'
+import { Component, Prop, Host, h } from '@stencil/core'
+import { applySpacingStyles } from '../../utils/layout'
 
 @Component({
   tag: 'z-heading',
@@ -13,27 +14,32 @@ export class Heading {
   @Prop() targetBlank: boolean
   @Prop() spacingTop: string
   @Prop() spacingBottom: string
+  // Spacing Styles
+  @Prop() m: string
+  @Prop() p: string
 
   render() {
     const HeadingTag = `h${this.level}`
 
     return (
-      <HeadingTag
-        style={{
-          fontSize: this.fontSize,
-          color: this.color,
-          marginTop: this.spacingTop,
-          marginBottom: this.fontSize && !this.spacingBottom ? (parseInt(this.fontSize) / 2).toString() + 'rem' : this.spacingBottom,
-        }}
-      >
-        {this.href ? (
-          <a href={this.href} target={this.targetBlank && '_blank'} style={{ color: this.color }}>
+      <Host style={applySpacingStyles(this)}>
+        <HeadingTag
+          style={{
+            fontSize: this.fontSize,
+            color: this.color,
+            marginTop: this.spacingTop,
+            marginBottom: this.fontSize && !this.spacingBottom ? (parseInt(this.fontSize) / 2).toString() + 'rem' : this.spacingBottom,
+          }}
+        >
+          {this.href ? (
+            <a href={this.href} target={this.targetBlank && '_blank'} style={{ color: this.color }}>
+              <slot></slot>
+            </a>
+          ) : (
             <slot></slot>
-          </a>
-        ) : (
-          <slot></slot>
-        )}
-      </HeadingTag>
+          )}
+        </HeadingTag>
+      </Host>
     )
   }
 }

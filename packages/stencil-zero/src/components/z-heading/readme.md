@@ -13,6 +13,8 @@
 | `fontSize`           | `font-size`      |             | `string`                                 | `undefined` |
 | `href`               | `href`           |             | `string`                                 | `undefined` |
 | `level` _(required)_ | `level`          |             | `"1" \| "2" \| "3" \| "4" \| "5" \| "6"` | `undefined` |
+| `m`                  | `m`              |             | `string`                                 | `undefined` |
+| `p`                  | `p`              |             | `string`                                 | `undefined` |
 | `spacingBottom`      | `spacing-bottom` |             | `string`                                 | `undefined` |
 | `spacingTop`         | `spacing-top`    |             | `string`                                 | `undefined` |
 | `targetBlank`        | `target-blank`   |             | `boolean`                                | `undefined` |

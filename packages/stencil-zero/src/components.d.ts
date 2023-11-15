@@ -7,7 +7,9 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface ZAspectRatio {
+        "m": string;
         "maxWidth": string;
+        "p": string;
         "ratio": string;
     }
     interface ZBox {
@@ -50,6 +52,8 @@ export namespace Components {
         "fontSize": string;
         "href": string;
         "level": '1' | '2' | '3' | '4' | '5' | '6';
+        "m": string;
+        "p": string;
         "spacingBottom": string;
         "spacingTop": string;
         "targetBlank": boolean;
@@ -60,7 +64,9 @@ export namespace Components {
         "color": string;
         "fontSize": string;
         "italic": boolean;
+        "m": string;
         "mark": boolean;
+        "p": string;
         "strike": boolean;
         "sub": boolean;
         "sup": boolean;
@@ -107,7 +113,9 @@ export namespace Components {
     }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
+        "m": string;
         "options"?: Array<{ name: string; key: string; width?: string }>;
+        "p": string;
     }
     interface ZText {
         "color": string;
@@ -115,6 +123,8 @@ export namespace Components {
         "hyphens": boolean;
         "inline": boolean;
         "lineHeight": string;
+        "m": string;
+        "p": string;
         "textAlign": 'center' | 'right' | 'left' | 'justify';
         "transform": 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana';
     }
@@ -181,7 +191,9 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ZAspectRatio {
+        "m"?: string;
         "maxWidth"?: string;
+        "p"?: string;
         "ratio": string;
     }
     interface ZBox {
@@ -224,6 +236,8 @@ declare namespace LocalJSX {
         "fontSize"?: string;
         "href"?: string;
         "level": '1' | '2' | '3' | '4' | '5' | '6';
+        "m"?: string;
+        "p"?: string;
         "spacingBottom"?: string;
         "spacingTop"?: string;
         "targetBlank"?: boolean;
@@ -234,7 +248,9 @@ declare namespace LocalJSX {
         "color"?: string;
         "fontSize"?: string;
         "italic"?: boolean;
+        "m"?: string;
         "mark"?: boolean;
+        "p"?: string;
         "strike"?: boolean;
         "sub"?: boolean;
         "sup"?: boolean;
@@ -281,7 +297,9 @@ declare namespace LocalJSX {
     }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
+        "m"?: string;
         "options"?: Array<{ name: string; key: string; width?: string }>;
+        "p"?: string;
     }
     interface ZText {
         "color"?: string;
@@ -289,6 +307,8 @@ declare namespace LocalJSX {
         "hyphens"?: boolean;
         "inline"?: boolean;
         "lineHeight"?: string;
+        "m"?: string;
+        "p"?: string;
         "textAlign"?: 'center' | 'right' | 'left' | 'justify';
         "transform"?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana';
     }

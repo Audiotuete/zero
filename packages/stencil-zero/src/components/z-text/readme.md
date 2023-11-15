@@ -14,6 +14,8 @@
 | `hyphens`    | `hyphens`     |             | `boolean`                                                                                  | `undefined` |
 | `inline`     | `inline`      |             | `boolean`                                                                                  | `undefined` |
 | `lineHeight` | `line-height` |             | `string`                                                                                   | `undefined` |
+| `m`          | `m`           |             | `string`                                                                                   | `undefined` |
+| `p`          | `p`           |             | `string`                                                                                   | `undefined` |
 | `textAlign`  | `text-align`  |             | `"center" \| "justify" \| "left" \| "right"`                                               | `undefined` |
 | `transform`  | `transform`   |             | `"capitalize" \| "full-size-kana" \| "full-width" \| "lowercase" \| "none" \| "uppercase"` | `undefined` |
 

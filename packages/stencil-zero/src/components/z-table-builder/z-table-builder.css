@@ -8,3 +8,9 @@ td {
   text-align: left;
   border: 1px solid;
 }
+
+#no-data-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
