@@ -38,6 +38,26 @@ const options = [
 </script>
 
 <template>
+  <!-- DEVIDER -->
+
+  <z-box
+    justify="space-between"
+    h="300px"
+  >
+    <z-divider>Cool</z-divider>
+
+    <z-divider
+      vertical
+      content-position="10"
+      divider-thickness="2px"
+      divider-style="dotted"
+      divider-color="red"
+      divider-expansion="80"
+    >
+      <z-box p="10px">Cool</z-box>
+    </z-divider>
+  </z-box>
+
   <!-- TEXT & HIGHLIGHT -->
   <z-text p="20px"
     >Lorem ipsum dolor

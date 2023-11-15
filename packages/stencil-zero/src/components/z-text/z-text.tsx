@@ -33,7 +33,6 @@ export class Text {
     return (
       <Host style={{ ...displayType, ...applySpacingStyles(this) }}>
         <TextTag
-          class="text"
           style={{
             margin: '0',
             color: this.color,
