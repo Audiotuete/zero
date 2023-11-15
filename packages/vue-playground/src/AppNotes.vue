@@ -38,6 +38,20 @@ const options = [
 </script>
 
 <template>
+  <!-- TEXT & HIGHLIGHT -->
+  <z-text p="20px"
+    >Lorem ipsum dolor
+    <z-highlight
+      bold
+      mark
+      font-size="1.5rem"
+      >onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua.
+    </z-highlight>
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat.
+  </z-text>
+
   <!-- HEADINGS -->
   <z-heading
     level="1"
