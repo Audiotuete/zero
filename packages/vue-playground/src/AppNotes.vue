@@ -41,10 +41,12 @@ const options = [
   <!-- DEVIDER -->
 
   <z-box
-    justify="space-between"
-    h="300px"
+    justify="space-around"
+    align="center"
+    h="600px"
+    w="600px"
   >
-    <z-divider>Cool</z-divider>
+    <z-divider divider-expansion="80">Cool</z-divider>
 
     <z-divider
       vertical
@@ -52,7 +54,7 @@ const options = [
       divider-thickness="2px"
       divider-style="dotted"
       divider-color="red"
-      divider-expansion="80"
+      divider-expansion="60"
     >
       <z-box p="10px">Cool</z-box>
     </z-divider>
