@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Option } from "./components/z-table-builder/z-table-builder.d";
+import { TabData } from "./components/z-tabs/z-tabs.d";
 export { Option } from "./components/z-table-builder/z-table-builder.d";
+export { TabData } from "./components/z-tabs/z-tabs.d";
 export namespace Components {
     interface ZAspectRatio {
         "m": string;
@@ -123,6 +125,22 @@ export namespace Components {
         "m": string;
         "p": string;
     }
+    interface ZTabContent {
+        "m": string;
+        "p": string;
+    }
+    interface ZTabContentItem {
+        "m": string;
+        "p": string;
+    }
+    interface ZTabNav {
+        "m": string;
+        "p": string;
+    }
+    interface ZTabNavItem {
+        "m": string;
+        "p": string;
+    }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
         "m": string;
@@ -130,8 +148,9 @@ export namespace Components {
         "p": string;
     }
     interface ZTabs {
+        "data": TabData[];
+        "defaultTabIndex": number;
         "m": string;
-        "options"?: Array<{ id: string; label: string; component: any }>;
         "p": string;
     }
     interface ZText {
@@ -189,6 +208,30 @@ declare global {
         prototype: HTMLZListItemElement;
         new (): HTMLZListItemElement;
     };
+    interface HTMLZTabContentElement extends Components.ZTabContent, HTMLStencilElement {
+    }
+    var HTMLZTabContentElement: {
+        prototype: HTMLZTabContentElement;
+        new (): HTMLZTabContentElement;
+    };
+    interface HTMLZTabContentItemElement extends Components.ZTabContentItem, HTMLStencilElement {
+    }
+    var HTMLZTabContentItemElement: {
+        prototype: HTMLZTabContentItemElement;
+        new (): HTMLZTabContentItemElement;
+    };
+    interface HTMLZTabNavElement extends Components.ZTabNav, HTMLStencilElement {
+    }
+    var HTMLZTabNavElement: {
+        prototype: HTMLZTabNavElement;
+        new (): HTMLZTabNavElement;
+    };
+    interface HTMLZTabNavItemElement extends Components.ZTabNavItem, HTMLStencilElement {
+    }
+    var HTMLZTabNavItemElement: {
+        prototype: HTMLZTabNavItemElement;
+        new (): HTMLZTabNavItemElement;
+    };
     interface HTMLZTableBuilderElement extends Components.ZTableBuilder, HTMLStencilElement {
     }
     var HTMLZTableBuilderElement: {
@@ -215,6 +258,10 @@ declare global {
         "z-highlight": HTMLZHighlightElement;
         "z-list-box": HTMLZListBoxElement;
         "z-list-item": HTMLZListItemElement;
+        "z-tab-content": HTMLZTabContentElement;
+        "z-tab-content-item": HTMLZTabContentItemElement;
+        "z-tab-nav": HTMLZTabNavElement;
+        "z-tab-nav-item": HTMLZTabNavItemElement;
         "z-table-builder": HTMLZTableBuilderElement;
         "z-tabs": HTMLZTabsElement;
         "z-text": HTMLZTextElement;
@@ -336,6 +383,22 @@ declare namespace LocalJSX {
         "m"?: string;
         "p"?: string;
     }
+    interface ZTabContent {
+        "m"?: string;
+        "p"?: string;
+    }
+    interface ZTabContentItem {
+        "m"?: string;
+        "p"?: string;
+    }
+    interface ZTabNav {
+        "m"?: string;
+        "p"?: string;
+    }
+    interface ZTabNavItem {
+        "m"?: string;
+        "p"?: string;
+    }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
         "m"?: string;
@@ -343,8 +406,9 @@ declare namespace LocalJSX {
         "p"?: string;
     }
     interface ZTabs {
+        "data"?: TabData[];
+        "defaultTabIndex"?: number;
         "m"?: string;
-        "options"?: Array<{ id: string; label: string; component: any }>;
         "p"?: string;
     }
     interface ZText {
@@ -366,6 +430,10 @@ declare namespace LocalJSX {
         "z-highlight": ZHighlight;
         "z-list-box": ZListBox;
         "z-list-item": ZListItem;
+        "z-tab-content": ZTabContent;
+        "z-tab-content-item": ZTabContentItem;
+        "z-tab-nav": ZTabNav;
+        "z-tab-nav-item": ZTabNavItem;
         "z-table-builder": ZTableBuilder;
         "z-tabs": ZTabs;
         "z-text": ZText;
@@ -382,6 +450,10 @@ declare module "@stencil/core" {
             "z-highlight": LocalJSX.ZHighlight & JSXBase.HTMLAttributes<HTMLZHighlightElement>;
             "z-list-box": LocalJSX.ZListBox & JSXBase.HTMLAttributes<HTMLZListBoxElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
+            "z-tab-content": LocalJSX.ZTabContent & JSXBase.HTMLAttributes<HTMLZTabContentElement>;
+            "z-tab-content-item": LocalJSX.ZTabContentItem & JSXBase.HTMLAttributes<HTMLZTabContentItemElement>;
+            "z-tab-nav": LocalJSX.ZTabNav & JSXBase.HTMLAttributes<HTMLZTabNavElement>;
+            "z-tab-nav-item": LocalJSX.ZTabNavItem & JSXBase.HTMLAttributes<HTMLZTabNavItemElement>;
             "z-table-builder": LocalJSX.ZTableBuilder & JSXBase.HTMLAttributes<HTMLZTableBuilderElement>;
             "z-tabs": LocalJSX.ZTabs & JSXBase.HTMLAttributes<HTMLZTabsElement>;
             "z-text": LocalJSX.ZText & JSXBase.HTMLAttributes<HTMLZTextElement>;
