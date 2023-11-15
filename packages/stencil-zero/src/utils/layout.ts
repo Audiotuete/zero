@@ -24,6 +24,7 @@ export function applySpacingStyles(props) {
     paddingBottom: !props.pb ? props.p : props.pb,
     paddingRight: !props.pr ? props.p : props.pr,
     paddingLeft: !props.pl ? props.p : props.pl,
+    display: 'block',
   }
 
   props.p && (spacingStyles['padding'] = props.p)
@@ -36,11 +37,7 @@ export function applyBoxStyles(props) {
   if (!props) return
 
   const boxStyles = {
-    height: props.h,
-    width: props.w,
-    maxHeight: props.h,
-    maxWidth: props.w,
-    display: props.block && 'block',
+    display: props.block ? 'block' : 'flex',
     flex: props.flex,
     flexDirection: props.row ? 'row' : 'column',
     justifyContent: props.justify,
@@ -49,17 +46,21 @@ export function applyBoxStyles(props) {
     rowGap: props.rowGap,
     columnGap: props.columnGap,
     flexWrap: props.wrap && 'wrap',
+    zIndex: props.zIndex,
+    height: props.h,
+    width: props.w,
+    maxHeight: props.h,
+    maxWidth: props.w,
     borderWidth: props.borderWidth,
     borderStyle: props.borderStyle,
     borderColor: props.colorfull ? props.colorfull : props.borderColor,
     borderRadius: props.borderRadius,
+    backgroundColor: props.background,
+    boxShadow: props.boxShadow,
     cursor: props.cursor,
     pointerEvents: props.pointerEvents,
-    zIndex: props.zIndex,
-    boxShadow: props.boxShadow,
-    backgroundColor: props.background,
   }
-  return { ...boxStyles, ...applySpacingStyles(props) }
+  return { ...applySpacingStyles(props), ...boxStyles }
 }
 
 export function getParentBoxesCount(el: HTMLElement, counter) {

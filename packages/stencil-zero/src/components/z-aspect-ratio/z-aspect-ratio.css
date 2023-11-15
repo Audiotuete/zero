@@ -1,7 +1,3 @@
-:host {
-  display: block;
-}
-
 .zero-aspect-ratio-container-inner {
   position: relative;
   overflow: hidden;

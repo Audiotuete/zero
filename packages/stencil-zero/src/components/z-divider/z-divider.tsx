@@ -35,9 +35,9 @@ export class Divider {
     const borderStyles = { borderColor: this.dividerColor, borderStyle: this.dividerStyle, borderWidth: this.dividerThickness }
 
     const Horizontal = () => {
-      const hostStyles = { flexDirection: 'row', width: expansionPercent }
+      const hostStyles = { display: 'flex', flexDirection: 'row', width: expansionPercent }
       return (
-        <Host style={{ ...hostStyles, ...applySpacingStyles(this) }}>
+        <Host style={{ ...applySpacingStyles(this), ...hostStyles }}>
           <div class="border" style={{ ...leftOrTopPos, ...borderStyles }} />
           <Content />
           <div class="border" style={{ ...rightOrBottomPos, ...borderStyles }} />
@@ -46,9 +46,9 @@ export class Divider {
     }
 
     const Vertical = () => {
-      const hostStyles = { flexDirection: 'column', minHeight: expansionPercent }
+      const hostStyles = { display: 'flex', flexDirection: 'column', minHeight: expansionPercent }
       return (
-        <Host style={{ ...hostStyles, ...applySpacingStyles(this) }}>
+        <Host style={{ ...applySpacingStyles(this), ...hostStyles }}>
           <div class="border vertical" style={{ ...leftOrTopPos, ...borderStyles }} />
           <Content />
           <div class="border vertical" style={{ ...rightOrBottomPos, ...borderStyles }} />
