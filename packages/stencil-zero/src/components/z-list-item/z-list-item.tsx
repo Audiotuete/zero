@@ -1,17 +1,17 @@
 import { Component, Prop, Host, h } from '@stencil/core'
 
-import { applySpaceStyless } from '../../utils/layout'
-import { SpaceStyles } from '../../types/layout'
+import { applySpaceStyles } from '../../utils/layout'
 
 @Component({
   tag: 'z-list-item',
 })
 export class ListItem {
-  @Prop() spaceStyles: SpaceStyles
+  @Prop() m: string
+  @Prop() p: string
 
   render() {
     return (
-      <Host role="listitem" style={applySpaceStyless(this.spaceStyles)}>
+      <Host role="listitem" style={applySpaceStyles(this)}>
         <slot />
       </Host>
     )

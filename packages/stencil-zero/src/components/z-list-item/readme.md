@@ -5,9 +5,10 @@
 
 ## Properties
 
-| Property      | Attribute | Description | Type          | Default     |
-| ------------- | --------- | ----------- | ------------- | ----------- |
-| `spaceStyles` | --        |             | `SpaceStyles` | `undefined` |
+| Property | Attribute | Description | Type     | Default     |
+| -------- | --------- | ----------- | -------- | ----------- |
+| `m`      | `m`       |             | `string` | `undefined` |
+| `p`      | `p`       |             | `string` | `undefined` |
 
 
 ----------------------------------------------
