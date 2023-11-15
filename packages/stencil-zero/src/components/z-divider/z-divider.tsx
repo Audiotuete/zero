@@ -7,33 +7,29 @@ import { applySpacingStyles } from '../../utils/layout'
   shadow: true,
 })
 export class Divider {
-  @Prop() fontSize: string
-  @Prop() color: string
-
-  // Spacing Styles
-  @Prop() m: string
-  @Prop() p: string
   @Prop() vertical: boolean
-
+  @Prop() contentPosition: string
   @Prop() dividerExpansion: string
   @Prop() dividerThickness: string
   @Prop() dividerColor: string
   @Prop() dividerStyle: 'none' | 'hidden' | 'dotted' | 'dashed' | 'solid' | 'double' | 'groove' | 'ridge' | 'inset' | 'outset'
-
-  @Prop() contentPosition: string
+  // Spacing Styles
+  @Prop() m: string
+  @Prop() p: string
 
   @Element() root: HTMLElement
 
   render() {
-    const leftOrTop = this.contentPosition ? { flex: `${Number(this.contentPosition)}` } : { flex: '100' }
-    const rightOrBottom = this.contentPosition ? { flex: `${100 - Number(this.contentPosition)}` } : { flex: '100' }
-
     const Content = () =>
+      // Check if slot is needed
       this.root.innerHTML && (
         <div class="content">
           <slot></slot>
         </div>
       )
+
+    const leftOrTopPos = this.contentPosition ? { flex: `${Number(this.contentPosition)}` } : { flex: '100' }
+    const rightOrBottomPos = this.contentPosition ? { flex: `${100 - Number(this.contentPosition)}` } : { flex: '100' }
 
     const expansionPercent = this.dividerExpansion ? `${this.dividerExpansion}%` : '100%'
     const borderStyles = { borderColor: this.dividerColor, borderStyle: this.dividerStyle, borderWidth: this.dividerThickness }
@@ -42,25 +38,24 @@ export class Divider {
       const hostStyles = { flexDirection: 'row', width: expansionPercent }
       return (
         <Host style={{ ...hostStyles, ...applySpacingStyles(this) }}>
-          <div class="border" style={{ ...leftOrTop, ...borderStyles }} />
-          <Content></Content>
-          <div class="border" style={{ ...rightOrBottom, ...borderStyles }} />
+          <div class="border" style={{ ...leftOrTopPos, ...borderStyles }} />
+          <Content />
+          <div class="border" style={{ ...rightOrBottomPos, ...borderStyles }} />
         </Host>
       )
     }
 
     const Vertical = () => {
       const hostStyles = { flexDirection: 'column', minHeight: expansionPercent }
-
       return (
         <Host style={{ ...hostStyles, ...applySpacingStyles(this) }}>
-          <div class="border vertical" style={{ ...leftOrTop, ...borderStyles }} />
-          <Content></Content>
-          <div class="border vertical" style={{ ...rightOrBottom, ...borderStyles }} />
+          <div class="border vertical" style={{ ...leftOrTopPos, ...borderStyles }} />
+          <Content />
+          <div class="border vertical" style={{ ...rightOrBottomPos, ...borderStyles }} />
         </Host>
       )
     }
 
-    return this.vertical ? <Vertical></Vertical> : <Horizontal></Horizontal>
+    return this.vertical ? <Vertical /> : <Horizontal />
   }
 }

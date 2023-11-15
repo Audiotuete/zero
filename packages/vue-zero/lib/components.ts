@@ -54,16 +54,14 @@ export const ZBox = /*@__PURE__*/ defineContainer<JSX.ZBox>('z-box', undefined, 
 
 
 export const ZDivider = /*@__PURE__*/ defineContainer<JSX.ZDivider>('z-divider', undefined, [
-  'fontSize',
-  'color',
-  'm',
-  'p',
   'vertical',
+  'contentPosition',
   'dividerExpansion',
   'dividerThickness',
   'dividerColor',
   'dividerStyle',
-  'contentPosition'
+  'm',
+  'p'
 ]);
 
 

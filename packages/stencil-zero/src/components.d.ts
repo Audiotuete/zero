@@ -48,13 +48,11 @@ export namespace Components {
         "zIndex": string;
     }
     interface ZDivider {
-        "color": string;
         "contentPosition": string;
         "dividerColor": string;
         "dividerExpansion": string;
         "dividerStyle": 'none' | 'hidden' | 'dotted' | 'dashed' | 'solid' | 'double' | 'groove' | 'ridge' | 'inset' | 'outset';
         "dividerThickness": string;
-        "fontSize": string;
         "m": string;
         "p": string;
         "vertical": boolean;
@@ -251,13 +249,11 @@ declare namespace LocalJSX {
         "zIndex"?: string;
     }
     interface ZDivider {
-        "color"?: string;
         "contentPosition"?: string;
         "dividerColor"?: string;
         "dividerExpansion"?: string;
         "dividerStyle"?: 'none' | 'hidden' | 'dotted' | 'dashed' | 'solid' | 'double' | 'groove' | 'ridge' | 'inset' | 'outset';
         "dividerThickness"?: string;
-        "fontSize"?: string;
         "m"?: string;
         "p"?: string;
         "vertical"?: boolean;
