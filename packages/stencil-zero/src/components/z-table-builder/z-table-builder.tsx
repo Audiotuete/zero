@@ -1,6 +1,8 @@
 import { Component, Prop, Host, h } from '@stencil/core'
 import { applySpacingStyles } from '../../utils/layout'
 
+import { Option } from './z-table-builder.d'
+
 @Component({
   tag: 'z-table-builder',
   styleUrl: 'z-table-builder.css',
@@ -8,7 +10,7 @@ import { applySpacingStyles } from '../../utils/layout'
 })
 export class TableBuilder {
   @Prop() data!: [] | Array<string[]>
-  @Prop() options?: Array<{ name: string; key: string; width?: string }>
+  @Prop() options?: Option[]
   // Spacing Styles
   @Prop() m: string
   @Prop() p: string

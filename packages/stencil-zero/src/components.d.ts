@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Option } from "./components/z-table-builder/z-table-builder.d";
+export { Option } from "./components/z-table-builder/z-table-builder.d";
 export namespace Components {
     interface ZAspectRatio {
         "m": string;
@@ -124,7 +126,12 @@ export namespace Components {
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
         "m": string;
-        "options"?: Array<{ name: string; key: string; width?: string }>;
+        "options"?: Option[];
+        "p": string;
+    }
+    interface ZTabs {
+        "m": string;
+        "options"?: Array<{ id: string; label: string; component: any }>;
         "p": string;
     }
     interface ZText {
@@ -188,6 +195,12 @@ declare global {
         prototype: HTMLZTableBuilderElement;
         new (): HTMLZTableBuilderElement;
     };
+    interface HTMLZTabsElement extends Components.ZTabs, HTMLStencilElement {
+    }
+    var HTMLZTabsElement: {
+        prototype: HTMLZTabsElement;
+        new (): HTMLZTabsElement;
+    };
     interface HTMLZTextElement extends Components.ZText, HTMLStencilElement {
     }
     var HTMLZTextElement: {
@@ -203,6 +216,7 @@ declare global {
         "z-list-box": HTMLZListBoxElement;
         "z-list-item": HTMLZListItemElement;
         "z-table-builder": HTMLZTableBuilderElement;
+        "z-tabs": HTMLZTabsElement;
         "z-text": HTMLZTextElement;
     }
 }
@@ -325,7 +339,12 @@ declare namespace LocalJSX {
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
         "m"?: string;
-        "options"?: Array<{ name: string; key: string; width?: string }>;
+        "options"?: Option[];
+        "p"?: string;
+    }
+    interface ZTabs {
+        "m"?: string;
+        "options"?: Array<{ id: string; label: string; component: any }>;
         "p"?: string;
     }
     interface ZText {
@@ -348,6 +367,7 @@ declare namespace LocalJSX {
         "z-list-box": ZListBox;
         "z-list-item": ZListItem;
         "z-table-builder": ZTableBuilder;
+        "z-tabs": ZTabs;
         "z-text": ZText;
     }
 }
@@ -363,6 +383,7 @@ declare module "@stencil/core" {
             "z-list-box": LocalJSX.ZListBox & JSXBase.HTMLAttributes<HTMLZListBoxElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
             "z-table-builder": LocalJSX.ZTableBuilder & JSXBase.HTMLAttributes<HTMLZTableBuilderElement>;
+            "z-tabs": LocalJSX.ZTabs & JSXBase.HTMLAttributes<HTMLZTabsElement>;
             "z-text": LocalJSX.ZText & JSXBase.HTMLAttributes<HTMLZTextElement>;
         }
     }
