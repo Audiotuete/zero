@@ -12,10 +12,10 @@ export function assignRole(tagName) {
   return tagName ? roleMap[tagName] : 'none'
 }
 
-export function applySpaceStyless(props) {
+export function applySpaceStyles(props) {
   if (!props) return
 
-  const spacingStyles = {
+  const spaceStyles = {
     marginTop: !props.mt ? props.m : props.mt,
     marginBottom: !props.mb ? props.m : props.mb,
     marginRight: !props.mr ? props.m : props.mr,
@@ -26,24 +26,16 @@ export function applySpaceStyless(props) {
     paddingLeft: !props.pl ? props.p : props.pl,
   }
 
-  props.p && (spacingStyles['padding'] = props.p)
-  props.m && (spacingStyles['margin'] = props.m)
+  props.p && (spaceStyles['padding'] = props.p)
+  props.m && (spaceStyles['margin'] = props.m)
 
-  return spacingStyles
+  return spaceStyles
 }
 
-export function applyBoxStyless(props) {
+export function applyBoxStyles(props) {
   if (!props) return
 
-  const BoxStyless = {
-    marginTop: props.mt && props.mt,
-    marginBottom: props.mb && props.mb,
-    marginRight: props.mr && props.mr,
-    marginLeft: props.ml && props.ml,
-    paddingTop: props.pt && props.pt,
-    paddingBottom: props.pb && props.pb,
-    paddingRight: props.pr && props.pr,
-    paddingLeft: props.pl && props.pl,
+  const boxStyles = {
     height: props.h,
     width: props.w,
     maxHeight: props.h,
@@ -67,7 +59,7 @@ export function applyBoxStyless(props) {
     boxShadow: props.boxShadow,
     backgroundColor: props.background,
   }
-  return { ...BoxStyless, ...applySpaceStyless(props) }
+  return { ...boxStyles, ...applySpaceStyles(props) }
 }
 
 export function getParentBoxesCount(el: HTMLElement, counter) {
