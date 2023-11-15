@@ -30,11 +30,11 @@ export class Tabs {
   tabNavItems: Element[]
   tabContent: Element
   tabContentItems: Element[]
-  usingSlots = false
+  isUsingSlot = false
 
   componentWillLoad() {
     if (this.root.firstElementChild) {
-      this.usingSlots = true
+      this.isUsingSlot = true
 
       this.tabNav = document.getElementsByTagName('Z-TAB-NAV')[0]
       this.tabNavItems = Array.from(this.tabNav.children)
@@ -51,7 +51,7 @@ export class Tabs {
 
   render() {
     const Tabs = () => {
-      if (this.mockTabData.length && !this.usingSlots) {
+      if (this.mockTabData.length && !this.isUsingSlot) {
         return (
           <Host style={{ ...applySpacingStyles(this) }}>
             <z-tab-nav>
@@ -69,7 +69,7 @@ export class Tabs {
             </z-tab-content>
           </Host>
         )
-      } else if (this.usingSlots) {
+      } else if (this.isUsingSlot) {
         return (
           <Host style={{ ...applySpacingStyles(this) }}>
             {console.log('What up')}
