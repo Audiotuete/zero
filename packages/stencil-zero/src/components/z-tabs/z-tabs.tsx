@@ -1,10 +1,11 @@
 import { Component, Element, Host, Prop, State, h } from '@stencil/core'
-import { applySpacingStyles } from '../../utils/layout'
+// import { applySpacingStyles } from '../../utils/layout'
 
 import { TabData } from './z-tabs.d'
 
 @Component({
   tag: 'z-tabs',
+  styleUrl: 'z-tabs.css',
   shadow: false,
 })
 export class Tabs {
@@ -17,35 +18,67 @@ export class Tabs {
   @Prop() m: string
   @Prop() p: string
 
+  @Prop() vertical: boolean
+  @Prop() contentWidth: string
+  @Prop() contentHeight: string
+  @Prop() navItemsWidth: string
+  @Prop() navItemsFit: boolean
+
   @Element() root: HTMLElement
 
   mockTabData = [
-    // { id: 'fruit', name: 'Fruit', component: <z-box background="red"></z-box> },
-    // { id: 'veggies', name: 'Veggies', component: <z-box background="yellow"></z-box> },
-    // { id: 'meat', name: 'Meat', component: <z-box background="green"></z-box> },
-    // { id: 'juicy', name: 'Juice', component: <z-box background="blue"></z-box> },
+    { id: 'fruit', name: 'Fruit & Cake', component: <z-box w="200px" h="200px" background="red"></z-box> },
+    { id: 'veggies', name: 'Veggies', component: <z-box w="500px" h="100px" background="yellow"></z-box> },
+    { id: 'meat', name: 'Meat', component: <z-box w="100px" h="500px" background="green"></z-box> },
+    { id: 'juicy', name: 'Juice', component: <z-box w="1200px" h="1200px" background="blue"></z-box> },
   ]
 
-  tabNav: Element
-  tabNavItems: Element[]
-  tabContent: Element
-  tabContentItems: Element[]
+  navNode: any
+  navItemNodes: any
+  contentNode: any
+  contentItemNodes: any
   isUsingSlot = false
 
   componentWillLoad() {
     if (this.root.firstElementChild) {
       this.isUsingSlot = true
 
-      this.tabNav = document.getElementsByTagName('Z-TAB-NAV')[0]
-      this.tabNavItems = Array.from(this.tabNav.children)
+      this.navNode = document.getElementsByTagName('Z-TAB-NAV')[0]
+      this.navItemNodes = Array.from(this.navNode.children)
+      this.contentNode = document.getElementsByTagName('Z-TAB-CONTENT')[0]
+      this.contentItemNodes = [...Array.from(this.contentNode.children)]
 
-      this.tabContent = document.getElementsByTagName('Z-TAB-CONTENT')[0]
-      this.tabContentItems = [...Array.from(this.tabContent.children)]
-      this.tabContent.remove()
+      this.contentNode.remove()
     }
   }
 
-  handleClick(idx) {
+  componentDidLoad() {
+    this.navNode = document.getElementsByTagName('Z-TAB-NAV')[0]
+    this.navItemNodes = Array.from(this.navNode.children)
+
+    if (this.vertical) {
+      this.navNode.style.flexDirection = 'column'
+      this.root.style.flexDirection = 'row'
+    }
+
+    if (this.navItemsFit || this.navItemsWidth) {
+      this.navItemNodes.map(item => {
+        this.navItemsFit && !this.vertical && (item.style.flex = '1')
+        this.navItemsFit && this.contentWidth && !this.vertical && (this.navNode.style.maxWidth = this.contentWidth)
+        this.navItemsWidth && (!this.navItemsFit || this.vertical) && (item.style.minWidth = this.navItemsWidth)
+      })
+    }
+
+    if (this.contentWidth || this.contentHeight) {
+      this.contentNode = document.getElementsByTagName('Z-TAB-CONTENT')[0]
+      this.contentWidth && (this.contentNode.style.minwWidth = this.contentWidth)
+      this.contentWidth && (this.contentNode.style.maxWidth = this.contentWidth)
+      this.contentHeight && (this.contentNode.style.minHeight = this.contentHeight)
+      this.contentHeight && (this.contentNode.style.maxHeight = this.contentHeight)
+    }
+  }
+
+  selectTab(idx) {
     this.tabIndex = idx
   }
 
@@ -53,11 +86,11 @@ export class Tabs {
     const Tabs = () => {
       if (this.mockTabData.length && !this.isUsingSlot) {
         return (
-          <Host style={{ ...applySpacingStyles(this) }}>
+          <Host>
             <z-tab-nav>
               {this.mockTabData.map((navItem, idx) => {
                 return (
-                  <z-tab-nav-item key={navItem.id} onClick={() => this.handleClick(idx)}>
+                  <z-tab-nav-item key={navItem.id} onClick={() => this.selectTab(idx)}>
                     {navItem.name}
                   </z-tab-nav-item>
                 )
@@ -71,25 +104,26 @@ export class Tabs {
         )
       } else if (this.isUsingSlot) {
         return (
-          <Host style={{ ...applySpacingStyles(this) }}>
-            {console.log('What up')}
-            {this.tabNavItems.map((navItem: HTMLElement, idx) => {
+          <Host>
+            {this.navItemNodes.map((navItem: HTMLElement, idx) => {
               navItem.onclick = () => {
-                this.handleClick(idx)
+                this.selectTab(idx)
               }
             })}
             <z-tab-content
+              style={{ minWidth: this.contentWidth, maxWidth: this.contentWidth, minHeight: this.contentHeight, maxHeight: this.contentHeight }}
               ref={el => {
                 if (el) {
                   el.innerHTML = ''
-                  el.appendChild(this.tabContentItems[this.tabIndex].cloneNode(true))
+
+                  el.appendChild(this.contentItemNodes[this.tabIndex].cloneNode(true))
                 }
               }}
             />
           </Host>
         )
       } else {
-        return <Host style={{ ...applySpacingStyles(this) }}>No tab data provided </Host>
+        return <Host>No tab data provided </Host>
       }
     }
 

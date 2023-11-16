@@ -126,20 +126,12 @@ export namespace Components {
         "p": string;
     }
     interface ZTabContent {
-        "m": string;
-        "p": string;
     }
     interface ZTabContentItem {
-        "m": string;
-        "p": string;
     }
     interface ZTabNav {
-        "m": string;
-        "p": string;
     }
     interface ZTabNavItem {
-        "m": string;
-        "p": string;
     }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
@@ -148,10 +140,15 @@ export namespace Components {
         "p": string;
     }
     interface ZTabs {
+        "contentHeight": string;
+        "contentWidth": string;
         "data": TabData[];
         "defaultTabIndex": number;
         "m": string;
+        "navItemsFit": boolean;
+        "navItemsWidth": string;
         "p": string;
+        "vertical": boolean;
     }
     interface ZText {
         "color": string;
@@ -384,20 +381,12 @@ declare namespace LocalJSX {
         "p"?: string;
     }
     interface ZTabContent {
-        "m"?: string;
-        "p"?: string;
     }
     interface ZTabContentItem {
-        "m"?: string;
-        "p"?: string;
     }
     interface ZTabNav {
-        "m"?: string;
-        "p"?: string;
     }
     interface ZTabNavItem {
-        "m"?: string;
-        "p"?: string;
     }
     interface ZTableBuilder {
         "data": [] | Array<string[]>;
@@ -406,10 +395,15 @@ declare namespace LocalJSX {
         "p"?: string;
     }
     interface ZTabs {
+        "contentHeight"?: string;
+        "contentWidth"?: string;
         "data"?: TabData[];
         "defaultTabIndex"?: number;
         "m"?: string;
+        "navItemsFit"?: boolean;
+        "navItemsWidth"?: string;
         "p"?: string;
+        "vertical"?: boolean;
     }
     interface ZText {
         "color"?: string;

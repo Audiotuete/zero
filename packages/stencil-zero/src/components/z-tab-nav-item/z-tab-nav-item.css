@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  align-items: center;
+  min-width: 100px;
+  flex: 0;
+  padding: 8px 16px;
+  border: 1px solid black;
+}
+
+.fit {
+  flex: 1;
+}

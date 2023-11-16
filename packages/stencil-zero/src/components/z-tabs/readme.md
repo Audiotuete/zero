@@ -9,16 +9,22 @@
 
 | Property          | Attribute           | Description | Type        | Default     |
 | ----------------- | ------------------- | ----------- | ----------- | ----------- |
+| `contentHeight`   | `content-height`    |             | `string`    | `undefined` |
+| `contentWidth`    | `content-width`     |             | `string`    | `undefined` |
 | `data`            | --                  |             | `TabData[]` | `undefined` |
 | `defaultTabIndex` | `default-tab-index` |             | `number`    | `0`         |
 | `m`               | `m`                 |             | `string`    | `undefined` |
+| `navItemsFit`     | `nav-items-fit`     |             | `boolean`   | `undefined` |
+| `navItemsWidth`   | `nav-items-width`   |             | `string`    | `undefined` |
 | `p`               | `p`                 |             | `string`    | `undefined` |
+| `vertical`        | `vertical`          |             | `boolean`   | `undefined` |
 
 
 ## Dependencies
 
 ### Depends on
 
+- [z-box](../z-box)
 - [z-tab-nav](../z-tab-nav)
 - [z-tab-nav-item](../z-tab-nav-item)
 - [z-tab-content](../z-tab-content)
@@ -27,6 +33,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  z-tabs --> z-box
   z-tabs --> z-tab-nav
   z-tabs --> z-tab-nav-item
   z-tabs --> z-tab-content

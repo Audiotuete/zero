@@ -1,20 +1,11 @@
-import { Component, Prop, Host, h } from '@stencil/core'
-import { applySpacingStyles } from '../../utils/layout'
+import { Component, h } from '@stencil/core'
 
 @Component({
   tag: 'z-tab-content-item',
   shadow: false,
 })
 export class TabContentItem {
-  // Spacing Styles
-  @Prop() m: string
-  @Prop() p: string
-
   render() {
-    return (
-      <Host style={{ ...applySpacingStyles(this) }}>
-        <slot></slot>
-      </Host>
-    )
+    return <slot></slot>
   }
 }

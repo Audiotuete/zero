@@ -137,28 +137,16 @@ export const ZListItem = /*@__PURE__*/ defineContainer<JSX.ZListItem>('z-list-it
 ]);
 
 
-export const ZTabContent = /*@__PURE__*/ defineContainer<JSX.ZTabContent>('z-tab-content', undefined, [
-  'm',
-  'p'
-]);
+export const ZTabContent = /*@__PURE__*/ defineContainer<JSX.ZTabContent>('z-tab-content', undefined);
 
 
-export const ZTabContentItem = /*@__PURE__*/ defineContainer<JSX.ZTabContentItem>('z-tab-content-item', undefined, [
-  'm',
-  'p'
-]);
+export const ZTabContentItem = /*@__PURE__*/ defineContainer<JSX.ZTabContentItem>('z-tab-content-item', undefined);
 
 
-export const ZTabNav = /*@__PURE__*/ defineContainer<JSX.ZTabNav>('z-tab-nav', undefined, [
-  'm',
-  'p'
-]);
+export const ZTabNav = /*@__PURE__*/ defineContainer<JSX.ZTabNav>('z-tab-nav', undefined);
 
 
-export const ZTabNavItem = /*@__PURE__*/ defineContainer<JSX.ZTabNavItem>('z-tab-nav-item', undefined, [
-  'm',
-  'p'
-]);
+export const ZTabNavItem = /*@__PURE__*/ defineContainer<JSX.ZTabNavItem>('z-tab-nav-item', undefined);
 
 
 export const ZTableBuilder = /*@__PURE__*/ defineContainer<JSX.ZTableBuilder>('z-table-builder', undefined, [
@@ -173,7 +161,12 @@ export const ZTabs = /*@__PURE__*/ defineContainer<JSX.ZTabs>('z-tabs', undefine
   'data',
   'defaultTabIndex',
   'm',
-  'p'
+  'p',
+  'vertical',
+  'contentWidth',
+  'contentHeight',
+  'navItemsWidth',
+  'navItemsFit'
 ]);
 
 
