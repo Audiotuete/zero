@@ -1,5 +1,4 @@
 import { Component, Element, Host, Prop, State, h } from '@stencil/core'
-// import { applySpacingStyles } from '../../utils/layout'
 
 import { TabData } from './z-tabs.d'
 
@@ -25,11 +24,11 @@ export class Tabs {
   @State() tabIndex = this.selectedTabIndex
   @Element() root: HTMLElement
 
-  mockTabData = [
-    { id: 'fruit', name: 'Fruit & Cake', component: <z-box w="200px" h="200px" background="red"></z-box> },
-    { id: 'veggies', name: 'Veggies', component: <z-box w="500px" h="100px" background="yellow"></z-box> },
-    { id: 'meat', name: 'Meat', component: <z-box w="100px" h="500px" background="green"></z-box> },
-    { id: 'juicy', name: 'Juice', component: <z-box w="1200px" h="1200px" background="blue"></z-box> },
+  mockTabdata = [
+    { id: 'fruit', name: 'Fruit & Cake', staticHtmlElement: <z-box w="200px" h="200px" background="red"></z-box> },
+    { id: 'veggies', name: 'Veggies', staticHtmlElement: <z-box w="500px" h="100px" background="yellow"></z-box> },
+    { id: 'meat', name: 'Meat', staticHtmlElement: <z-box w="100px" h="500px" background="green"></z-box> },
+    { id: 'juicy', name: 'Juice', staticHtmlElement: <z-box w="1200px" h="1200px" background="blue"></z-box> },
   ]
 
   navNode: any
@@ -89,11 +88,11 @@ export class Tabs {
 
   render() {
     const Tabs = () => {
-      if (this.mockTabData.length && !this.isUsingSlot) {
+      if (this.data && this.data.length && !this.isUsingSlot) {
         return (
           <Host>
             <z-tab-nav>
-              {this.mockTabData.map((navItem, idx) => {
+              {this.data.map((navItem, idx) => {
                 return (
                   <z-tab-nav-item key={navItem.id} onClick={event => this.selectTab(event.target, idx)}>
                     {navItem.name}
@@ -103,7 +102,17 @@ export class Tabs {
             </z-tab-nav>
 
             <z-tab-content>
-              <z-tab-content-item>{this.mockTabData[this.tabIndex].component}</z-tab-content-item>
+              <z-tab-content-item
+                style={{ minWidth: this.contentWidth, maxWidth: this.contentWidth, minHeight: this.contentHeight, maxHeight: this.contentHeight }}
+                ref={el => {
+                  const staticHtmlElement = this.data[this.tabIndex].staticHtmlElement
+
+                  if (el) {
+                    el.innerHTML = ''
+                    typeof staticHtmlElement === 'object' && el.appendChild(staticHtmlElement)
+                  }
+                }}
+              />
             </z-tab-content>
           </Host>
         )
