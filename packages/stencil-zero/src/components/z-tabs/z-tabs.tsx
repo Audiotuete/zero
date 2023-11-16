@@ -10,9 +10,7 @@ import { TabData } from './z-tabs.d'
 })
 export class Tabs {
   @Prop() data: TabData[]
-  @Prop() defaultTabIndex = 0
-
-  @State() tabIndex = this.defaultTabIndex
+  @Prop() selectedTabIndex = 0
 
   // Spacing Styles
   @Prop() m: string
@@ -24,6 +22,7 @@ export class Tabs {
   @Prop() navItemsWidth: string
   @Prop() navItemsFit: boolean
 
+  @State() tabIndex = this.selectedTabIndex
   @Element() root: HTMLElement
 
   mockTabData = [
@@ -56,6 +55,8 @@ export class Tabs {
     this.navNode = document.getElementsByTagName('Z-TAB-NAV')[0]
     this.navItemNodes = Array.from(this.navNode.children)
 
+    this.navItemNodes[this.tabIndex].classList.add('selected')
+
     if (this.vertical) {
       this.navNode.style.flexDirection = 'column'
       this.root.style.flexDirection = 'row'
@@ -63,7 +64,7 @@ export class Tabs {
 
     if (this.navItemsFit || this.navItemsWidth) {
       this.navItemNodes.map(item => {
-        this.navItemsFit && !this.vertical && (item.style.flex = '1')
+        this.navItemsFit && !this.vertical && item.classList.add('fit')
         this.navItemsFit && this.contentWidth && !this.vertical && (this.navNode.style.maxWidth = this.contentWidth)
         this.navItemsWidth && (!this.navItemsFit || this.vertical) && (item.style.minWidth = this.navItemsWidth)
       })
@@ -78,7 +79,11 @@ export class Tabs {
     }
   }
 
-  selectTab(idx) {
+  selectTab(navItemNode, idx) {
+    this.navItemNodes.forEach(item => {
+      item.classList.remove('selected')
+    })
+    navItemNode.classList.add('selected')
     this.tabIndex = idx
   }
 
@@ -90,7 +95,7 @@ export class Tabs {
             <z-tab-nav>
               {this.mockTabData.map((navItem, idx) => {
                 return (
-                  <z-tab-nav-item key={navItem.id} onClick={() => this.selectTab(idx)}>
+                  <z-tab-nav-item key={navItem.id} onClick={event => this.selectTab(event.target, idx)}>
                     {navItem.name}
                   </z-tab-nav-item>
                 )
@@ -106,8 +111,8 @@ export class Tabs {
         return (
           <Host>
             {this.navItemNodes.map((navItem: HTMLElement, idx) => {
-              navItem.onclick = () => {
-                this.selectTab(idx)
+              navItem.onclick = event => {
+                this.selectTab(event.target, idx)
               }
             })}
             <z-tab-content

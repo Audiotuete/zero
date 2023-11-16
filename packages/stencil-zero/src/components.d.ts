@@ -143,11 +143,11 @@ export namespace Components {
         "contentHeight": string;
         "contentWidth": string;
         "data": TabData[];
-        "defaultTabIndex": number;
         "m": string;
         "navItemsFit": boolean;
         "navItemsWidth": string;
         "p": string;
+        "selectedTabIndex": number;
         "vertical": boolean;
     }
     interface ZText {
@@ -398,11 +398,11 @@ declare namespace LocalJSX {
         "contentHeight"?: string;
         "contentWidth"?: string;
         "data"?: TabData[];
-        "defaultTabIndex"?: number;
         "m"?: string;
         "navItemsFit"?: boolean;
         "navItemsWidth"?: string;
         "p"?: string;
+        "selectedTabIndex"?: number;
         "vertical"?: boolean;
     }
     interface ZText {

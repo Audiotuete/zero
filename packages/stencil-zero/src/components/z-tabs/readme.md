@@ -7,17 +7,17 @@
 
 ## Properties
 
-| Property          | Attribute           | Description | Type        | Default     |
-| ----------------- | ------------------- | ----------- | ----------- | ----------- |
-| `contentHeight`   | `content-height`    |             | `string`    | `undefined` |
-| `contentWidth`    | `content-width`     |             | `string`    | `undefined` |
-| `data`            | --                  |             | `TabData[]` | `undefined` |
-| `defaultTabIndex` | `default-tab-index` |             | `number`    | `0`         |
-| `m`               | `m`                 |             | `string`    | `undefined` |
-| `navItemsFit`     | `nav-items-fit`     |             | `boolean`   | `undefined` |
-| `navItemsWidth`   | `nav-items-width`   |             | `string`    | `undefined` |
-| `p`               | `p`                 |             | `string`    | `undefined` |
-| `vertical`        | `vertical`          |             | `boolean`   | `undefined` |
+| Property           | Attribute            | Description | Type        | Default     |
+| ------------------ | -------------------- | ----------- | ----------- | ----------- |
+| `contentHeight`    | `content-height`     |             | `string`    | `undefined` |
+| `contentWidth`     | `content-width`      |             | `string`    | `undefined` |
+| `data`             | --                   |             | `TabData[]` | `undefined` |
+| `m`                | `m`                  |             | `string`    | `undefined` |
+| `navItemsFit`      | `nav-items-fit`      |             | `boolean`   | `undefined` |
+| `navItemsWidth`    | `nav-items-width`    |             | `string`    | `undefined` |
+| `p`                | `p`                  |             | `string`    | `undefined` |
+| `selectedTabIndex` | `selected-tab-index` |             | `number`    | `0`         |
+| `vertical`         | `vertical`           |             | `boolean`   | `undefined` |
 
 
 ## Dependencies

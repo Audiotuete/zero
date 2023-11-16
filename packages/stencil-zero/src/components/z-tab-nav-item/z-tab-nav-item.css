@@ -1,4 +1,4 @@
-:host {
+z-tab-nav-item {
   display: flex;
   align-items: center;
   min-width: 100px;
@@ -9,4 +9,9 @@
 
 .fit {
   flex: 1;
+}
+
+.selected {
+  background: #ccc;
+  font-weight: 700;
 }
