@@ -12,10 +12,11 @@ export function assignRole(tagName) {
   return tagName ? roleMap[tagName] : 'none'
 }
 
-export function applySpacingStyles(props) {
+export function applySpacingStyles(props, display = 'block') {
   if (!props) return
 
   const spacingStyles = {
+    display: display,
     marginTop: !props.mt ? props.m : props.mt,
     marginBottom: !props.mb ? props.m : props.mb,
     marginRight: !props.mr ? props.m : props.mr,
@@ -24,7 +25,6 @@ export function applySpacingStyles(props) {
     paddingBottom: !props.pb ? props.p : props.pb,
     paddingRight: !props.pr ? props.p : props.pr,
     paddingLeft: !props.pl ? props.p : props.pl,
-    display: 'block',
   }
 
   props.p && (spacingStyles['padding'] = props.p)
@@ -60,7 +60,7 @@ export function applyBoxStyles(props) {
     cursor: props.cursor,
     pointerEvents: props.pointerEvents,
   }
-  return { ...applySpacingStyles(props), ...boxStyles }
+  return { ...applySpacingStyles(props, 'flex'), ...boxStyles }
 }
 
 export function getParentBoxesCount(el: HTMLElement, counter) {
