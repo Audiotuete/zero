@@ -38,6 +38,49 @@ const options = [
 </script>
 
 <template>
+  <!-- TABS -->
+  <z-tabs
+    vertical
+    selected-tab-index="1"
+    nav-items-width="120px"
+    content-width="900px"
+    content-height="600px"
+  >
+    <!-- <z-tab-nav>
+      <z-tab-nav-item>One</z-tab-nav-item>
+      <z-tab-nav-item>Two</z-tab-nav-item>
+      <z-tab-nav-item>Three</z-tab-nav-item>
+      <z-tab-nav-item>Four</z-tab-nav-item>
+    </z-tab-nav> -->
+
+    <z-tab-content>
+      <z-tab-content-item name="Fruit & Cake">
+        <Test></Test
+      ></z-tab-content-item>
+      <z-tab-content-item name="Veggies">
+        <z-box
+          w="500px"
+          h="100px"
+          background="yellow"
+        ></z-box>
+      </z-tab-content-item>
+      <z-tab-content-item name="Meat">
+        <z-box
+          w="100px"
+          h="500px"
+          background="green"
+        ></z-box>
+      </z-tab-content-item>
+      <z-tab-content-item name="Nuts">
+        <z-box
+          w="1200px"
+          h="1200px"
+          background="blue"
+        ></z-box>
+      </z-tab-content-item>
+    </z-tab-content>
+  </z-tabs>
+
   <!-- DEVIDER -->
 
   <z-box
@@ -94,11 +137,12 @@ const options = [
   <!-- ASPECT RATIO -->
   <z-aspect-ratio
     ratio="16:9"
-    max-width="500px"
+    max-width="600px"
   >
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng"
     />
+    <!-- <img src="https://i0.wp.com/images.metmuseum.org/CRDImages/as/original/DP130155.jpg?w=1290&ssl=1" alt="" /> -->
   </z-aspect-ratio>
 
   <!-- TABLE BUILDER -->
