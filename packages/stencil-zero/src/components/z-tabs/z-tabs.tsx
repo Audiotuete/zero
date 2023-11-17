@@ -1,14 +1,11 @@
 import { Component, Element, Host, Prop, State, h } from '@stencil/core'
 
-import { TabData } from './z-tabs.d'
-
 @Component({
   tag: 'z-tabs',
   styleUrl: 'z-tabs.css',
   shadow: false,
 })
 export class Tabs {
-  @Prop() data: TabData[]
   @Prop() selectedTabIndex = 0
 
   // Spacing Styles
@@ -24,52 +21,49 @@ export class Tabs {
   @State() tabIndex = this.selectedTabIndex
   @Element() root: HTMLElement
 
-  mockTabdata = [
-    { id: 'fruit', name: 'Fruit & Cake', staticHtmlElement: <z-box w="200px" h="200px" background="red"></z-box> },
-    { id: 'veggies', name: 'Veggies', staticHtmlElement: <z-box w="500px" h="100px" background="yellow"></z-box> },
-    { id: 'meat', name: 'Meat', staticHtmlElement: <z-box w="100px" h="500px" background="green"></z-box> },
-    { id: 'juicy', name: 'Juice', staticHtmlElement: <z-box w="1200px" h="1200px" background="blue"></z-box> },
-  ]
-
   navNode: any
   navItemNodes: any
+  hasSlotNav = false
+
   contentNode: any
   contentItemNodes: any
-  isUsingSlot = false
+  hasSlotContent = false
 
-  componentWillLoad() {
-    if (this.root.firstElementChild) {
-      this.isUsingSlot = true
-
-      this.navNode = document.getElementsByTagName('Z-TAB-NAV')[0]
-      this.navItemNodes = Array.from(this.navNode.children)
-      this.contentNode = document.getElementsByTagName('Z-TAB-CONTENT')[0]
-      this.contentItemNodes = [...Array.from(this.contentNode.children)]
-
-      this.contentNode.remove()
+  setupNavRefs(checkForSlot = false) {
+    this.navNode = document.getElementsByTagName('Z-TAB-NAV')[0]
+    this.navItemNodes = this.navNode && Array.from(this.navNode.children)
+    if (checkForSlot) {
+      this.hasSlotNav = this.navNode ? true : false
     }
   }
 
-  componentDidLoad() {
-    this.navNode = document.getElementsByTagName('Z-TAB-NAV')[0]
-    this.navItemNodes = Array.from(this.navNode.children)
+  setupContentRefs() {
+    this.contentNode = document.getElementsByTagName('Z-TAB-CONTENT')[0]
+    this.hasSlotContent = this.contentNode ? true : false
+    this.contentItemNodes = this.hasSlotContent && [...Array.from(this.contentNode.children)]
+    this.hasSlotContent && this.contentNode.remove()
+  }
 
-    this.navItemNodes[this.tabIndex].classList.add('selected')
-
-    if (this.vertical) {
-      this.navNode.style.flexDirection = 'column'
+  applyLayoutStyles() {
+    if (this.vertical && this.navNode) {
       this.root.style.flexDirection = 'row'
+      this.navNode.style.flexDirection = 'column'
     }
+  }
 
-    if (this.navItemsFit || this.navItemsWidth) {
+  applyNavStyles() {
+    if ((this.navItemsFit || this.navItemsWidth) && this.navItemNodes.length) {
       this.navItemNodes.map(item => {
         this.navItemsFit && !this.vertical && item.classList.add('fit')
         this.navItemsFit && this.contentWidth && !this.vertical && (this.navNode.style.maxWidth = this.contentWidth)
         this.navItemsWidth && (!this.navItemsFit || this.vertical) && (item.style.minWidth = this.navItemsWidth)
       })
+      this.navItemNodes[this.tabIndex].classList.add('selected')
     }
+  }
 
-    if (this.contentWidth || this.contentHeight) {
+  applyContentStyles() {
+    if ((this.contentWidth || this.contentHeight) && this.contentNode) {
       this.contentNode = document.getElementsByTagName('Z-TAB-CONTENT')[0]
       this.contentWidth && (this.contentNode.style.minwWidth = this.contentWidth)
       this.contentWidth && (this.contentNode.style.maxWidth = this.contentWidth)
@@ -86,61 +80,63 @@ export class Tabs {
     this.tabIndex = idx
   }
 
+  componentWillLoad() {
+    this.setupNavRefs(true)
+    this.setupContentRefs()
+  }
+
+  componentDidLoad() {
+    this.setupNavRefs(false)
+
+    this.applyLayoutStyles()
+    this.applyNavStyles()
+    this.applyContentStyles()
+  }
+
   render() {
-    const Tabs = () => {
-      if (this.data && this.data.length && !this.isUsingSlot) {
+    const TabNav = () => {
+      if (this.hasSlotNav) {
+        this.navItemNodes.map((navItem: HTMLElement, idx) => {
+          navItem.onclick = event => {
+            this.selectTab(event.target, idx)
+          }
+        })
+      } else if (this.hasSlotContent) {
         return (
-          <Host>
-            <z-tab-nav>
-              {this.data.map((navItem, idx) => {
-                return (
-                  <z-tab-nav-item key={navItem.id} onClick={event => this.selectTab(event.target, idx)}>
-                    {navItem.name}
-                  </z-tab-nav-item>
-                )
-              })}
-            </z-tab-nav>
-
-            <z-tab-content>
-              <z-tab-content-item
-                style={{ minWidth: this.contentWidth, maxWidth: this.contentWidth, minHeight: this.contentHeight, maxHeight: this.contentHeight }}
-                ref={el => {
-                  const staticHtmlElement = this.data[this.tabIndex].staticHtmlElement
-
-                  if (el) {
-                    el.innerHTML = ''
-                    typeof staticHtmlElement === 'object' && el.appendChild(staticHtmlElement)
-                  }
-                }}
-              />
-            </z-tab-content>
-          </Host>
-        )
-      } else if (this.isUsingSlot) {
-        return (
-          <Host>
-            {this.navItemNodes.map((navItem: HTMLElement, idx) => {
-              navItem.onclick = event => {
-                this.selectTab(event.target, idx)
+          <z-tab-nav>
+            {this.contentItemNodes.map((navItem: HTMLElement, idx) => {
+              if (navItem.hasAttribute('name')) {
+                return <z-tab-nav-item onClick={event => this.selectTab(event.target, idx)}>{navItem.getAttribute('name')}</z-tab-nav-item>
               }
             })}
-            <z-tab-content
-              style={{ minWidth: this.contentWidth, maxWidth: this.contentWidth, minHeight: this.contentHeight, maxHeight: this.contentHeight }}
-              ref={el => {
-                if (el) {
-                  el.innerHTML = ''
-
-                  el.appendChild(this.contentItemNodes[this.tabIndex].cloneNode(true))
-                }
-              }}
-            />
-          </Host>
+          </z-tab-nav>
         )
-      } else {
-        return <Host>No tab data provided </Host>
       }
     }
 
-    return <Tabs />
+    const TabContent = () => {
+      if (this.hasSlotContent) {
+        return (
+          <z-tab-content
+            style={{ minWidth: this.contentWidth, maxWidth: this.contentWidth, minHeight: this.contentHeight, maxHeight: this.contentHeight }}
+            ref={el => {
+              if (el) {
+                el.innerHTML = ''
+                el.appendChild(this.contentItemNodes[this.tabIndex].cloneNode(true))
+              }
+            }}
+          />
+        )
+      } else {
+        return <span>No tab data provided</span>
+      }
+    }
+
+    return (
+      <Host>
+        <TabNav />
+        <TabContent />
+      </Host>
+    )
   }
 }
