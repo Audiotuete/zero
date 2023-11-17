@@ -10,41 +10,28 @@ export class Text {
   @Prop() color: string
   @Prop() textAlign: 'center' | 'right' | 'left' | 'justify'
   @Prop() transform: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana'
-  @Prop() inline: boolean
   @Prop() hyphens: boolean
   @Prop() lineHeight: string
   // Spacing Styles
   @Prop() m: string
   @Prop() p: string
 
-  renderAs() {
-    return this.inline ? 'span' : 'p'
-  }
-
-  hyphenate() {
-    return this.hyphens ? 'auto' : 'none'
-  }
-
   render() {
-    const TextTag = this.renderAs()
-
-    const displayType: object = this.inline ? { display: 'inline' } : { display: 'block' }
-
     return (
-      <Host style={{ ...displayType, ...applySpacingStyles(this) }}>
-        <TextTag
+      <Host style={applySpacingStyles(this)}>
+        <p
           style={{
             margin: '0',
             color: this.color,
             fontSize: this.fontSize,
             lineHeight: this.lineHeight,
-            hyphens: this.hyphenate(),
+            hyphens: this.hyphens ? 'auto' : 'none',
             textAlign: this.textAlign,
             textTransform: this.transform,
           }}
         >
           <slot></slot>
-        </TextTag>
+        </p>
       </Host>
     )
   }
