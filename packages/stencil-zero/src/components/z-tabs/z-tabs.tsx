@@ -3,10 +3,10 @@ import { Component, Element, Host, Prop, State, h } from '@stencil/core'
 @Component({
   tag: 'z-tabs',
   styleUrl: 'z-tabs.css',
-  shadow: false,
+  scoped: true,
 })
 export class Tabs {
-  @Prop() selectedTabIndex = 0
+  @Prop() activeTabIndex = 0
 
   // Spacing Styles
   @Prop() m: string
@@ -18,7 +18,7 @@ export class Tabs {
   @Prop() navItemsWidth: string
   @Prop() navItemsFit: boolean
 
-  @State() tabIndex = this.selectedTabIndex
+  @State() tabIndex = this.activeTabIndex
   @Element() root: HTMLElement
 
   navNode: any
@@ -40,8 +40,7 @@ export class Tabs {
   setupContentRefs() {
     this.contentNode = document.getElementsByTagName('Z-TAB-CONTENT')[0]
     this.hasSlotContent = this.contentNode ? true : false
-    this.contentItemNodes = this.hasSlotContent && [...Array.from(this.contentNode.children)]
-    this.hasSlotContent && this.contentNode.remove()
+    this.contentItemNodes = this.hasSlotContent && Array.from(this.contentNode.children)
   }
 
   applyLayoutStyles() {
@@ -58,25 +57,30 @@ export class Tabs {
         this.navItemsFit && this.contentWidth && !this.vertical && (this.navNode.style.maxWidth = this.contentWidth)
         this.navItemsWidth && (!this.navItemsFit || this.vertical) && (item.style.minWidth = this.navItemsWidth)
       })
-      this.navItemNodes[this.tabIndex].classList.add('selected')
+      this.navItemNodes[this.tabIndex].classList.add('active')
+      this.contentItemNodes[this.tabIndex].classList.add('active')
     }
   }
 
   applyContentStyles() {
     if ((this.contentWidth || this.contentHeight) && this.contentNode) {
       this.contentNode = document.getElementsByTagName('Z-TAB-CONTENT')[0]
-      this.contentWidth && (this.contentNode.style.minwWidth = this.contentWidth)
+      this.contentWidth && (this.contentNode.style.minWidth = this.contentWidth)
       this.contentWidth && (this.contentNode.style.maxWidth = this.contentWidth)
       this.contentHeight && (this.contentNode.style.minHeight = this.contentHeight)
       this.contentHeight && (this.contentNode.style.maxHeight = this.contentHeight)
     }
   }
 
-  selectTab(navItemNode, idx) {
+  selectTab(idx) {
     this.navItemNodes.forEach(item => {
-      item.classList.remove('selected')
+      item.classList.remove('active')
     })
-    navItemNode.classList.add('selected')
+    this.contentItemNodes.forEach(item => {
+      item.classList.remove('active')
+    })
+    this.navItemNodes[idx].classList.add('active')
+    this.contentItemNodes[idx].classList.add('active')
     this.tabIndex = idx
   }
 
@@ -97,16 +101,16 @@ export class Tabs {
     const TabNav = () => {
       if (this.hasSlotNav) {
         this.navItemNodes.map((navItem: HTMLElement, idx) => {
-          navItem.onclick = event => {
-            this.selectTab(event.target, idx)
+          navItem.onclick = () => {
+            this.selectTab(idx)
           }
         })
       } else if (this.hasSlotContent) {
         return (
           <z-tab-nav>
-            {this.contentItemNodes.map((navItem: HTMLElement, idx) => {
-              if (navItem.hasAttribute('name')) {
-                return <z-tab-nav-item onClick={event => this.selectTab(event.target, idx)}>{navItem.getAttribute('name')}</z-tab-nav-item>
+            {this.contentItemNodes.map((contentItem: HTMLElement, idx) => {
+              if (contentItem.hasAttribute('name')) {
+                return <z-tab-nav-item onClick={() => this.selectTab(idx)}>{contentItem.getAttribute('name')}</z-tab-nav-item>
               }
             })}
           </z-tab-nav>
@@ -114,28 +118,10 @@ export class Tabs {
       }
     }
 
-    const TabContent = () => {
-      if (this.hasSlotContent) {
-        return (
-          <z-tab-content
-            style={{ minWidth: this.contentWidth, maxWidth: this.contentWidth, minHeight: this.contentHeight, maxHeight: this.contentHeight }}
-            ref={el => {
-              if (el) {
-                el.innerHTML = ''
-                el.appendChild(this.contentItemNodes[this.tabIndex].cloneNode(true))
-              }
-            }}
-          />
-        )
-      } else {
-        return <span>No tab data provided</span>
-      }
-    }
-
     return (
       <Host>
         <TabNav />
-        <TabContent />
+        <slot></slot>
       </Host>
     )
   }

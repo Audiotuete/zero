@@ -1,4 +1,3 @@
-z-tab-nav {
+:host {
   display: flex;
-  flex-direction: col;
 }

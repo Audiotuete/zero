@@ -138,13 +138,13 @@ export namespace Components {
         "p": string;
     }
     interface ZTabs {
+        "activeTabIndex": number;
         "contentHeight": string;
         "contentWidth": string;
         "m": string;
         "navItemsFit": boolean;
         "navItemsWidth": string;
         "p": string;
-        "selectedTabIndex": number;
         "vertical": boolean;
     }
     interface ZText {
@@ -391,13 +391,13 @@ declare namespace LocalJSX {
         "p"?: string;
     }
     interface ZTabs {
+        "activeTabIndex"?: number;
         "contentHeight"?: string;
         "contentWidth"?: string;
         "m"?: string;
         "navItemsFit"?: boolean;
         "navItemsWidth"?: string;
         "p"?: string;
-        "selectedTabIndex"?: number;
         "vertical"?: boolean;
     }
     interface ZText {

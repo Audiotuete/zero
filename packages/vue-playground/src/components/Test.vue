@@ -2,6 +2,8 @@
 import { ref, render } from "vue"
 
 const helloWorld = () => {
+  console.log("Hello")
+  variable.value++
   return "Hello World"
 }
 
@@ -16,7 +18,7 @@ const variable = ref(10)
 </script>
 
 <template>
-  <div @click="variable++">{{ helloWorld() }} {{ variable }}</div>
+  <div @click="helloWorld">Counter: {{ variable }}</div>
 </template>
 
 <style scoped></style>

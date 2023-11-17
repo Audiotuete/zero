@@ -2,7 +2,8 @@ import { Component, h } from '@stencil/core'
 
 @Component({
   tag: 'z-tab-content-item',
-  shadow: false,
+  styleUrl: 'z-tab-content-item.css',
+  shadow: true,
 })
 export class TabContentItem {
   render() {

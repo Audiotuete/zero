@@ -41,7 +41,7 @@ const options = [
   <!-- TABS -->
   <z-tabs
     vertical
-    selected-tab-index="1"
+    active-tab-index="1"
     nav-items-width="120px"
     content-width="900px"
     content-height="600px"
@@ -54,15 +54,15 @@ const options = [
     </z-tab-nav> -->
 
     <z-tab-content>
-      <z-tab-content-item name="Fruit & Cake">
-        <Test></Test
-      ></z-tab-content-item>
       <z-tab-content-item name="Veggies">
         <z-box
           w="500px"
           h="100px"
           background="yellow"
         ></z-box>
+      </z-tab-content-item>
+      <z-tab-content-item name="Fruit & Cake">
+        <Test></Test>
       </z-tab-content-item>
       <z-tab-content-item name="Meat">
         <z-box

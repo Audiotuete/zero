@@ -158,7 +158,7 @@ export const ZTableBuilder = /*@__PURE__*/ defineContainer<JSX.ZTableBuilder>('z
 
 
 export const ZTabs = /*@__PURE__*/ defineContainer<JSX.ZTabs>('z-tabs', undefined, [
-  'selectedTabIndex',
+  'activeTabIndex',
   'm',
   'p',
   'vertical',
