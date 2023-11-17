@@ -5,18 +5,12 @@
 <!-- Auto Generated Below -->
 
 
-## Dependencies
+## Properties
 
-### Used by
+| Property | Attribute | Description | Type     | Default     |
+| -------- | --------- | ----------- | -------- | ----------- |
+| `name`   | `name`    |             | `string` | `undefined` |
 
- - [z-tabs](../z-tabs)
-
-### Graph
-```mermaid
-graph TD;
-  z-tabs --> z-tab-content-item
-  style z-tab-content-item fill:#f9f,stroke:#333,stroke-width:4px
-```
 
 ----------------------------------------------
 

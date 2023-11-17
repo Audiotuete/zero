@@ -140,7 +140,9 @@ export const ZListItem = /*@__PURE__*/ defineContainer<JSX.ZListItem>('z-list-it
 export const ZTabContent = /*@__PURE__*/ defineContainer<JSX.ZTabContent>('z-tab-content', undefined);
 
 
-export const ZTabContentItem = /*@__PURE__*/ defineContainer<JSX.ZTabContentItem>('z-tab-content-item', undefined);
+export const ZTabContentItem = /*@__PURE__*/ defineContainer<JSX.ZTabContentItem>('z-tab-content-item', undefined, [
+  'name'
+]);
 
 
 export const ZTabNav = /*@__PURE__*/ defineContainer<JSX.ZTabNav>('z-tab-nav', undefined);
@@ -158,7 +160,6 @@ export const ZTableBuilder = /*@__PURE__*/ defineContainer<JSX.ZTableBuilder>('z
 
 
 export const ZTabs = /*@__PURE__*/ defineContainer<JSX.ZTabs>('z-tabs', undefined, [
-  'data',
   'selectedTabIndex',
   'm',
   'p',
@@ -175,7 +176,6 @@ export const ZText = /*@__PURE__*/ defineContainer<JSX.ZText>('z-text', undefine
   'color',
   'textAlign',
   'transform',
-  'inline',
   'hyphens',
   'lineHeight',
   'm',

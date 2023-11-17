@@ -6,9 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { Option } from "./components/z-table-builder/z-table-builder.d";
-import { TabData } from "./components/z-tabs/z-tabs.d";
 export { Option } from "./components/z-table-builder/z-table-builder.d";
-export { TabData } from "./components/z-tabs/z-tabs.d";
 export namespace Components {
     interface ZAspectRatio {
         "m": string;
@@ -128,6 +126,7 @@ export namespace Components {
     interface ZTabContent {
     }
     interface ZTabContentItem {
+        "name": string;
     }
     interface ZTabNav {
     }
@@ -142,7 +141,6 @@ export namespace Components {
     interface ZTabs {
         "contentHeight": string;
         "contentWidth": string;
-        "data": TabData[];
         "m": string;
         "navItemsFit": boolean;
         "navItemsWidth": string;
@@ -154,7 +152,6 @@ export namespace Components {
         "color": string;
         "fontSize": string;
         "hyphens": boolean;
-        "inline": boolean;
         "lineHeight": string;
         "m": string;
         "p": string;
@@ -383,6 +380,7 @@ declare namespace LocalJSX {
     interface ZTabContent {
     }
     interface ZTabContentItem {
+        "name"?: string;
     }
     interface ZTabNav {
     }
@@ -397,7 +395,6 @@ declare namespace LocalJSX {
     interface ZTabs {
         "contentHeight"?: string;
         "contentWidth"?: string;
-        "data"?: TabData[];
         "m"?: string;
         "navItemsFit"?: boolean;
         "navItemsWidth"?: string;
@@ -409,7 +406,6 @@ declare namespace LocalJSX {
         "color"?: string;
         "fontSize"?: string;
         "hyphens"?: boolean;
-        "inline"?: boolean;
         "lineHeight"?: string;
         "m"?: string;
         "p"?: string;

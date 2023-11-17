@@ -12,7 +12,6 @@
 | `color`      | `color`       |             | `string`                                                                                   | `undefined` |
 | `fontSize`   | `font-size`   |             | `string`                                                                                   | `undefined` |
 | `hyphens`    | `hyphens`     |             | `boolean`                                                                                  | `undefined` |
-| `inline`     | `inline`      |             | `boolean`                                                                                  | `undefined` |
 | `lineHeight` | `line-height` |             | `string`                                                                                   | `undefined` |
 | `m`          | `m`           |             | `string`                                                                                   | `undefined` |
 | `p`          | `p`           |             | `string`                                                                                   | `undefined` |
