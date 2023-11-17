@@ -126,7 +126,6 @@ export namespace Components {
     interface ZTabContent {
     }
     interface ZTabContentItem {
-        "name": string;
     }
     interface ZTabNav {
     }
@@ -380,7 +379,6 @@ declare namespace LocalJSX {
     interface ZTabContent {
     }
     interface ZTabContentItem {
-        "name"?: string;
     }
     interface ZTabNav {
     }
