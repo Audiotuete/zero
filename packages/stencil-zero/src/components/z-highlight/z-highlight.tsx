@@ -56,13 +56,13 @@ export class Highlight {
   }
 
   render() {
-    const WrappedSlot = () => {
+    const TagWrappedSlot = () => {
       return this.nestSlot(this.mapPropsToTags(this))
     }
 
     return (
-      <Host style={applySpacingStyles(this)}>
-        <WrappedSlot></WrappedSlot>
+      <Host style={applySpacingStyles(this, 'inline')}>
+        <TagWrappedSlot />
       </Host>
     )
   }

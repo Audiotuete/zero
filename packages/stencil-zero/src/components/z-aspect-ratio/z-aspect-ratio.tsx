@@ -20,7 +20,7 @@ export class AspectRatio {
 
   render() {
     return (
-      <Host style={{ maxWidth: this.maxWidth, display: 'block', ...applySpacingStyles(this) }}>
+      <Host style={{ maxWidth: this.maxWidth, ...applySpacingStyles(this) }}>
         <div class="zero-aspect-ratio-container-inner" style={this.calculatePaddingTop()}>
           <slot />
         </div>
