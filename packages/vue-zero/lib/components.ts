@@ -58,7 +58,8 @@ export const ZDetails = /*@__PURE__*/ defineContainer<JSX.ZDetails>('z-details',
   'spacingTop',
   'spacingBottom',
   'm',
-  'p'
+  'p',
+  'isExpanded'
 ]);
 
 

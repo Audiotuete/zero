@@ -1,4 +1,4 @@
-import { Component, Prop, Element, State, Host, h } from '@stencil/core'
+import { Component, Prop, Element, Host, h } from '@stencil/core'
 import { applySpacingStyles } from '../../utils/layout'
 
 @Component({
@@ -19,7 +19,7 @@ export class Details {
   hasIconCollapsedSlot: boolean
   hasIconExpandedSlot: boolean
 
-  @State() isExpanded = false
+  @Prop({ reflect: true }) isExpanded: boolean
 
   componentWillLoad() {
     this.hasIconCollapsedSlot = !!this.root.querySelector('[slot="icon-collapsed"]')
@@ -27,56 +27,48 @@ export class Details {
   }
 
   toggleDetails() {
-    const contentNode = this.root.shadowRoot.lastElementChild as HTMLElement
-
-    if (this.hasAttribute('accordion')) {
+    if (this.root.parentElement.hasAttribute('accordion')) {
       this.collapseAllDetails()
     }
-    if (!!contentNode.classList.contains('active')) {
-      contentNode.classList.remove('active')
-      this.isExpanded = false
-    } else {
-      contentNode.classList.add('active')
-      this.isExpanded = true
-    }
-  }
 
-  hasAttribute(attribute) {
-    return !!this.root.parentElement.hasAttribute(attribute)
+    if (this.root.hasAttribute('is-expanded')) {
+      this.root.removeAttribute('is-expanded')
+    } else {
+      this.root.setAttribute('is-expanded', '')
+    }
   }
 
   collapseAllDetails() {
-    const detailsNodesList = Array.from(this.root.parentElement.children)
-    detailsNodesList.forEach(item => {
-      const contentNode = item.shadowRoot.lastElementChild as HTMLElement
-      contentNode.classList.remove('active')
+    const detailsList = Array.from(this.root.parentElement.children)
+    detailsList.forEach(item => {
+      if (item !== this.root) {
+        item.removeAttribute('is-expanded')
+      }
     })
   }
 
   render() {
     const Icon = () => {
-      if (!this.hasAttribute('accordion')) {
-        return [
-          this.hasIconCollapsedSlot ? (
-            <div class={{ icon: true, show: !this.isExpanded }}>
-              <slot name="icon-collapsed" />
-            </div>
-          ) : (
-            <div class={{ icon: true, show: !this.isExpanded }}>+</div>
-          ),
-          this.hasIconExpandedSlot ? (
-            <div class={{ icon: true, show: this.isExpanded }}>
-              <slot name="icon-expanded" />
-            </div>
-          ) : (
-            <div class={{ icon: true, show: this.isExpanded }}>-</div>
-          ),
-        ]
-      }
+      return [
+        this.hasIconCollapsedSlot ? (
+          <div class="icon-collapsed">
+            <slot name="icon-collapsed" />
+          </div>
+        ) : (
+          <div class="icon-collapsed">+</div>
+        ),
+        this.hasIconExpandedSlot ? (
+          <div class="icon-expanded">
+            <slot name="icon-expanded" />
+          </div>
+        ) : (
+          <div class="icon-expanded">-</div>
+        ),
+      ]
     }
 
     return (
-      <Host style={applySpacingStyles(this, 'flex')}>
+      <Host class="host" style={applySpacingStyles(this, 'flex')}>
         <div onClick={() => this.toggleDetails()} class="summary">
           {this.summary}
           <Icon />

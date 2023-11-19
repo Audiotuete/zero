@@ -50,6 +50,7 @@ export namespace Components {
         "zIndex": string;
     }
     interface ZDetails {
+        "isExpanded": boolean;
         "m": string;
         "p": string;
         "spacingBottom": string;
@@ -329,6 +330,7 @@ declare namespace LocalJSX {
         "zIndex"?: string;
     }
     interface ZDetails {
+        "isExpanded"?: boolean;
         "m"?: string;
         "p"?: string;
         "spacingBottom"?: string;
