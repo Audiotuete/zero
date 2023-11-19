@@ -53,6 +53,22 @@ export const ZBox = /*@__PURE__*/ defineContainer<JSX.ZBox>('z-box', undefined, 
 ]);
 
 
+export const ZDetails = /*@__PURE__*/ defineContainer<JSX.ZDetails>('z-details', undefined, [
+  'summary',
+  'spacingTop',
+  'spacingBottom',
+  'm',
+  'p'
+]);
+
+
+export const ZDetailsGroup = /*@__PURE__*/ defineContainer<JSX.ZDetailsGroup>('z-details-group', undefined, [
+  'gap',
+  'm',
+  'p'
+]);
+
+
 export const ZDivider = /*@__PURE__*/ defineContainer<JSX.ZDivider>('z-divider', undefined, [
   'vertical',
   'contentPosition',

@@ -49,6 +49,18 @@ export namespace Components {
         "wrap": boolean;
         "zIndex": string;
     }
+    interface ZDetails {
+        "m": string;
+        "p": string;
+        "spacingBottom": string;
+        "spacingTop": string;
+        "summary": string;
+    }
+    interface ZDetailsGroup {
+        "gap": string;
+        "m": string;
+        "p": string;
+    }
     interface ZDivider {
         "contentPosition": string;
         "dividerColor": string;
@@ -171,6 +183,18 @@ declare global {
         prototype: HTMLZBoxElement;
         new (): HTMLZBoxElement;
     };
+    interface HTMLZDetailsElement extends Components.ZDetails, HTMLStencilElement {
+    }
+    var HTMLZDetailsElement: {
+        prototype: HTMLZDetailsElement;
+        new (): HTMLZDetailsElement;
+    };
+    interface HTMLZDetailsGroupElement extends Components.ZDetailsGroup, HTMLStencilElement {
+    }
+    var HTMLZDetailsGroupElement: {
+        prototype: HTMLZDetailsGroupElement;
+        new (): HTMLZDetailsGroupElement;
+    };
     interface HTMLZDividerElement extends Components.ZDivider, HTMLStencilElement {
     }
     var HTMLZDividerElement: {
@@ -246,6 +270,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "z-aspect-ratio": HTMLZAspectRatioElement;
         "z-box": HTMLZBoxElement;
+        "z-details": HTMLZDetailsElement;
+        "z-details-group": HTMLZDetailsGroupElement;
         "z-divider": HTMLZDividerElement;
         "z-heading": HTMLZHeadingElement;
         "z-highlight": HTMLZHighlightElement;
@@ -301,6 +327,18 @@ declare namespace LocalJSX {
         "w"?: string;
         "wrap"?: boolean;
         "zIndex"?: string;
+    }
+    interface ZDetails {
+        "m"?: string;
+        "p"?: string;
+        "spacingBottom"?: string;
+        "spacingTop"?: string;
+        "summary"?: string;
+    }
+    interface ZDetailsGroup {
+        "gap"?: string;
+        "m"?: string;
+        "p"?: string;
     }
     interface ZDivider {
         "contentPosition"?: string;
@@ -413,6 +451,8 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "z-aspect-ratio": ZAspectRatio;
         "z-box": ZBox;
+        "z-details": ZDetails;
+        "z-details-group": ZDetailsGroup;
         "z-divider": ZDivider;
         "z-heading": ZHeading;
         "z-highlight": ZHighlight;
@@ -433,6 +473,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "z-aspect-ratio": LocalJSX.ZAspectRatio & JSXBase.HTMLAttributes<HTMLZAspectRatioElement>;
             "z-box": LocalJSX.ZBox & JSXBase.HTMLAttributes<HTMLZBoxElement>;
+            "z-details": LocalJSX.ZDetails & JSXBase.HTMLAttributes<HTMLZDetailsElement>;
+            "z-details-group": LocalJSX.ZDetailsGroup & JSXBase.HTMLAttributes<HTMLZDetailsGroupElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-highlight": LocalJSX.ZHighlight & JSXBase.HTMLAttributes<HTMLZHighlightElement>;
