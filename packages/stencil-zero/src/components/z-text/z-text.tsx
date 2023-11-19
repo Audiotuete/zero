@@ -30,7 +30,7 @@ export class Text {
             textTransform: this.transform,
           }}
         >
-          <slot></slot>
+          <slot />
         </p>
       </Host>
     )

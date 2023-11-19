@@ -121,7 +121,7 @@ export class Tabs {
     return (
       <Host>
         <TabNav />
-        <slot></slot>
+        <slot />
       </Host>
     )
   }

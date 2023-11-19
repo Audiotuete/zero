@@ -7,6 +7,6 @@ import { Component, h } from '@stencil/core'
 })
 export class TabContent {
   render() {
-    return <slot></slot>
+    return <slot />
   }
 }

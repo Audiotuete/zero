@@ -24,7 +24,7 @@ export class Divider {
       // Check if slot is needed
       this.root.innerHTML && (
         <div class="content">
-          <slot></slot>
+          <slot />
         </div>
       )
 

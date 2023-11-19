@@ -15,7 +15,7 @@ export class DetailsGroup {
   render() {
     return (
       <Host style={{ ...applySpacingStyles(this, 'flex'), gap: this.gap }}>
-        <slot></slot>
+        <slot />
       </Host>
     )
   }

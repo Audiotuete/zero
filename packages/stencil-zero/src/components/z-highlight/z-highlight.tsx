@@ -49,7 +49,7 @@ export class Highlight {
     } else {
       return (
         <span style={{ color: this.color, fontSize: this.fontSize, textTransform: this.transform }}>
-          <slot></slot>
+          <slot />
         </span>
       )
     }

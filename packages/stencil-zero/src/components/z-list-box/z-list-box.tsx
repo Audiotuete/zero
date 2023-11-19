@@ -50,7 +50,7 @@ export class ListBox {
   render() {
     return (
       <Host role="list" style={applyBoxStyles(this)}>
-        <slot></slot>
+        <slot />
         {this.name && (
           <span role="none" class="box-label" style={{ color: this.boxColor }}>
             {this.name}

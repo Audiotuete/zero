@@ -33,10 +33,10 @@ export class Heading {
         >
           {this.href ? (
             <a href={this.href} target={this.targetBlank && '_blank'} style={{ color: this.color }}>
-              <slot></slot>
+              <slot />
             </a>
           ) : (
-            <slot></slot>
+            <slot />
           )}
         </HeadingTag>
       </Host>

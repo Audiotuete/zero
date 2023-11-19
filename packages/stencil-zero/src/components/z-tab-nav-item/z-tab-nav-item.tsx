@@ -7,6 +7,6 @@ import { Component, h } from '@stencil/core'
 })
 export class TabNavItem {
   render() {
-    return <slot></slot>
+    return <slot />
   }
 }
