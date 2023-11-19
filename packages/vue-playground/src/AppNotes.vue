@@ -38,6 +38,33 @@ const options = [
 </script>
 
 <template>
+  <!-- DETAILS / ACCORDION -->
+  <z-details-group
+    accordion
+    gap="10px"
+  >
+    <z-details summary="Hello">
+      <div slot="icon-collapsed">Open</div>
+      <div slot="icon-expanded">Close</div>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </z-details>
+    <z-details summary="World"
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </z-details>
+    <z-details summary="Year"
+      >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat.
+    </z-details>
+  </z-details-group>
+
   <!-- TABS -->
   <z-tabs
     vertical
