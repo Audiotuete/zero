@@ -3,7 +3,7 @@ import { applySpacingStyles } from '../../utils/layout'
 
 @Component({
   tag: 'z-divider',
-  styleUrl: 'z-divider.css',
+  styleUrl: 'z-divider.scss',
   shadow: true,
 })
 export class Divider {

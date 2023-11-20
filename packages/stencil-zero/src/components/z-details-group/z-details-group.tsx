@@ -3,7 +3,7 @@ import { applySpacingStyles } from '../../utils/layout'
 
 @Component({
   tag: 'z-details-group',
-  styleUrl: 'z-details-group.css',
+  styleUrl: 'z-details-group.scss',
   shadow: true,
 })
 export class DetailsGroup {

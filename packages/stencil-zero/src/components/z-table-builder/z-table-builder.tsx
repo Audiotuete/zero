@@ -5,7 +5,7 @@ import { Option } from './z-table-builder.d'
 
 @Component({
   tag: 'z-table-builder',
-  styleUrl: 'z-table-builder.css',
+  styleUrl: 'z-table-builder.scss',
   shadow: true,
 })
 export class TableBuilder {

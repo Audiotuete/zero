@@ -1,12 +1,21 @@
-import { Config } from '@stencil/core';
-import { vueOutputTarget } from '@stencil/vue-output-target';
+import { Config } from '@stencil/core'
+import { sass } from '@stencil/sass'
+import { postcss } from '@stencil-community/postcss'
+import autoprefixer from 'autoprefixer'
+
+import { vueOutputTarget } from '@stencil/vue-output-target'
 
 export const config: Config = {
   namespace: 'stencil-zero',
-  globalStyle: 'src/global/global.css',
   devServer: {
     openBrowser: false,
   },
+  plugins: [
+    sass(),
+    postcss({
+      plugins: [autoprefixer()],
+    }),
+  ],
   outputTargets: [
     vueOutputTarget({
       componentCorePackage: 'stencil-zero',
@@ -27,7 +36,8 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
+
   testing: {
     browserHeadless: 'new',
   },
-};
+}

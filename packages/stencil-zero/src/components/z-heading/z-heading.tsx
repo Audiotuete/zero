@@ -3,7 +3,7 @@ import { applySpacingStyles } from '../../utils/layout'
 
 @Component({
   tag: 'z-heading',
-  styleUrl: 'z-heading.css',
+  styleUrl: 'z-heading.scss',
   shadow: true,
 })
 export class Heading {

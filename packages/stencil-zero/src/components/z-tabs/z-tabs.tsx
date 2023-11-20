@@ -2,7 +2,7 @@ import { Component, Element, Host, Prop, State, h } from '@stencil/core'
 
 @Component({
   tag: 'z-tabs',
-  styleUrl: 'z-tabs.css',
+  styleUrl: 'z-tabs.scss',
   scoped: true,
 })
 export class Tabs {

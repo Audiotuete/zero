@@ -3,7 +3,7 @@ import { applySpacingStyles } from '../../utils/layout'
 
 @Component({
   tag: 'z-aspect-ratio',
-  styleUrl: 'z-aspect-ratio.css',
+  styleUrl: 'z-aspect-ratio.scss',
   shadow: false,
 })
 export class AspectRatio {

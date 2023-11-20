@@ -3,7 +3,7 @@ import { assignRole, applyBoxStyles, enableColoredBoxes } from '../../utils/layo
 
 @Component({
   tag: 'z-box',
-  styleUrl: '../../global/box.css',
+  styleUrl: '../../global/box.scss',
   shadow: true,
 })
 export class Box {

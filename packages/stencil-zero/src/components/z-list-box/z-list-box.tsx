@@ -3,7 +3,7 @@ import { applyBoxStyles, enableColoredBoxes } from '../../utils/layout'
 
 @Component({
   tag: 'z-list-box',
-  styleUrl: '../../global/box.css',
+  styleUrl: '../../global/box.scss',
   shadow: true,
 })
 export class ListBox {
