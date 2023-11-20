@@ -35,9 +35,19 @@ const options = [
   { name: "Lat", key: "address.geo.lat", width: "30px" },
   { name: "Lng", key: "address.geo.lng" },
 ]
+
+const switchValue = ref(false)
 </script>
 
 <template>
+  <!-- SWITCH -->
+  <z-switch
+    :value="switchValue"
+    @change="(event: Event) => (switchValue = !!(event.target as HTMLInputElement).value)"
+  ></z-switch>
+  <div v-if="switchValue">True</div>
+  <div v-else>False</div>
+
   <!-- DETAILS / ACCORDION -->
   <z-details-group
     accordion

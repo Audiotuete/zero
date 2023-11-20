@@ -136,6 +136,11 @@ export namespace Components {
         "m": string;
         "p": string;
     }
+    interface ZSwitch {
+        "m": string;
+        "p": string;
+        "value": boolean;
+    }
     interface ZTabContent {
     }
     interface ZTabContentItem {
@@ -226,6 +231,12 @@ declare global {
         prototype: HTMLZListItemElement;
         new (): HTMLZListItemElement;
     };
+    interface HTMLZSwitchElement extends Components.ZSwitch, HTMLStencilElement {
+    }
+    var HTMLZSwitchElement: {
+        prototype: HTMLZSwitchElement;
+        new (): HTMLZSwitchElement;
+    };
     interface HTMLZTabContentElement extends Components.ZTabContent, HTMLStencilElement {
     }
     var HTMLZTabContentElement: {
@@ -278,6 +289,7 @@ declare global {
         "z-highlight": HTMLZHighlightElement;
         "z-list-box": HTMLZListBoxElement;
         "z-list-item": HTMLZListItemElement;
+        "z-switch": HTMLZSwitchElement;
         "z-tab-content": HTMLZTabContentElement;
         "z-tab-content-item": HTMLZTabContentItemElement;
         "z-tab-nav": HTMLZTabNavElement;
@@ -416,6 +428,11 @@ declare namespace LocalJSX {
         "m"?: string;
         "p"?: string;
     }
+    interface ZSwitch {
+        "m"?: string;
+        "p"?: string;
+        "value"?: boolean;
+    }
     interface ZTabContent {
     }
     interface ZTabContentItem {
@@ -460,6 +477,7 @@ declare namespace LocalJSX {
         "z-highlight": ZHighlight;
         "z-list-box": ZListBox;
         "z-list-item": ZListItem;
+        "z-switch": ZSwitch;
         "z-tab-content": ZTabContent;
         "z-tab-content-item": ZTabContentItem;
         "z-tab-nav": ZTabNav;
@@ -482,6 +500,7 @@ declare module "@stencil/core" {
             "z-highlight": LocalJSX.ZHighlight & JSXBase.HTMLAttributes<HTMLZHighlightElement>;
             "z-list-box": LocalJSX.ZListBox & JSXBase.HTMLAttributes<HTMLZListBoxElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
+            "z-switch": LocalJSX.ZSwitch & JSXBase.HTMLAttributes<HTMLZSwitchElement>;
             "z-tab-content": LocalJSX.ZTabContent & JSXBase.HTMLAttributes<HTMLZTabContentElement>;
             "z-tab-content-item": LocalJSX.ZTabContentItem & JSXBase.HTMLAttributes<HTMLZTabContentItemElement>;
             "z-tab-nav": LocalJSX.ZTabNav & JSXBase.HTMLAttributes<HTMLZTabNavElement>;

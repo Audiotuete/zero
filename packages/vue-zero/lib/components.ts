@@ -154,6 +154,13 @@ export const ZListItem = /*@__PURE__*/ defineContainer<JSX.ZListItem>('z-list-it
 ]);
 
 
+export const ZSwitch = /*@__PURE__*/ defineContainer<JSX.ZSwitch>('z-switch', undefined, [
+  'value',
+  'm',
+  'p'
+]);
+
+
 export const ZTabContent = /*@__PURE__*/ defineContainer<JSX.ZTabContent>('z-tab-content', undefined);
 
 
