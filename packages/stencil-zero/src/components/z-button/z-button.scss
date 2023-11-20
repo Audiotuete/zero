@@ -1,0 +1,48 @@
+:host(.disabled) {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+button,
+a {
+  position: relative;
+  display: flex;
+  background: #fff;
+  flex-direction: row;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  padding: 8px 24px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  min-width: 100px;
+
+  * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+  }
+
+  &:hover {
+    background: #eee;
+  }
+}
+
+slot {
+  &[name='loading-svg'] {
+    display: flex;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+  }
+
+  &[name='icon-left'] {
+    margin-right: 6px;
+  }
+
+  &[name='icon-right'] {
+    margin-left: 6px;
+  }
+}

@@ -49,6 +49,15 @@ export namespace Components {
         "wrap": boolean;
         "zIndex": string;
     }
+    interface ZButton {
+        "disabled": boolean;
+        "href": string;
+        "loading": boolean;
+        "m": string;
+        "p": string;
+        "targetBlank": boolean;
+        "type": string;
+    }
     interface ZCheckbox {
         "checked": boolean;
         "m": string;
@@ -195,6 +204,12 @@ declare global {
         prototype: HTMLZBoxElement;
         new (): HTMLZBoxElement;
     };
+    interface HTMLZButtonElement extends Components.ZButton, HTMLStencilElement {
+    }
+    var HTMLZButtonElement: {
+        prototype: HTMLZButtonElement;
+        new (): HTMLZButtonElement;
+    };
     interface HTMLZCheckboxElement extends Components.ZCheckbox, HTMLStencilElement {
     }
     var HTMLZCheckboxElement: {
@@ -294,6 +309,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "z-aspect-ratio": HTMLZAspectRatioElement;
         "z-box": HTMLZBoxElement;
+        "z-button": HTMLZButtonElement;
         "z-checkbox": HTMLZCheckboxElement;
         "z-details": HTMLZDetailsElement;
         "z-details-group": HTMLZDetailsGroupElement;
@@ -353,6 +369,15 @@ declare namespace LocalJSX {
         "w"?: string;
         "wrap"?: boolean;
         "zIndex"?: string;
+    }
+    interface ZButton {
+        "disabled"?: boolean;
+        "href"?: string;
+        "loading"?: boolean;
+        "m"?: string;
+        "p"?: string;
+        "targetBlank"?: boolean;
+        "type"?: string;
     }
     interface ZCheckbox {
         "checked"?: boolean;
@@ -489,6 +514,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "z-aspect-ratio": ZAspectRatio;
         "z-box": ZBox;
+        "z-button": ZButton;
         "z-checkbox": ZCheckbox;
         "z-details": ZDetails;
         "z-details-group": ZDetailsGroup;
@@ -513,6 +539,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "z-aspect-ratio": LocalJSX.ZAspectRatio & JSXBase.HTMLAttributes<HTMLZAspectRatioElement>;
             "z-box": LocalJSX.ZBox & JSXBase.HTMLAttributes<HTMLZBoxElement>;
+            "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-checkbox": LocalJSX.ZCheckbox & JSXBase.HTMLAttributes<HTMLZCheckboxElement>;
             "z-details": LocalJSX.ZDetails & JSXBase.HTMLAttributes<HTMLZDetailsElement>;
             "z-details-group": LocalJSX.ZDetailsGroup & JSXBase.HTMLAttributes<HTMLZDetailsGroupElement>;

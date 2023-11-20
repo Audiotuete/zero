@@ -53,6 +53,17 @@ export const ZBox = /*@__PURE__*/ defineContainer<JSX.ZBox>('z-box', undefined, 
 ]);
 
 
+export const ZButton = /*@__PURE__*/ defineContainer<JSX.ZButton>('z-button', undefined, [
+  'loading',
+  'disabled',
+  'type',
+  'href',
+  'targetBlank',
+  'm',
+  'p'
+]);
+
+
 export const ZCheckbox = /*@__PURE__*/ defineContainer<JSX.ZCheckbox>('z-checkbox', undefined, [
   'value',
   'checked',
