@@ -16,7 +16,7 @@ export class Switch {
 
   toggleSwitch() {
     this.value = !this.value
-    this.root.dispatchEvent(new CustomEvent('change', { detail: this.value }))
+    this.root.dispatchEvent(new Event('change'))
   }
 
   render() {

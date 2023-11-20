@@ -1,4 +1,4 @@
-# z-divider
+# z-switch
 
 
 
@@ -11,7 +11,7 @@
 | -------- | --------- | ----------- | --------- | ----------- |
 | `m`      | `m`       |             | `string`  | `undefined` |
 | `p`      | `p`       |             | `string`  | `undefined` |
-| `value`  | `value`   |             | `boolean` | `false`     |
+| `value`  | `value`   |             | `boolean` | `undefined` |
 
 
 ----------------------------------------------
