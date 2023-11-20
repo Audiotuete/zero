@@ -49,6 +49,12 @@ export namespace Components {
         "wrap": boolean;
         "zIndex": string;
     }
+    interface ZCheckbox {
+        "checked": boolean;
+        "m": string;
+        "p": string;
+        "value": string;
+    }
     interface ZDetails {
         "isExpanded": boolean;
         "m": string;
@@ -189,6 +195,12 @@ declare global {
         prototype: HTMLZBoxElement;
         new (): HTMLZBoxElement;
     };
+    interface HTMLZCheckboxElement extends Components.ZCheckbox, HTMLStencilElement {
+    }
+    var HTMLZCheckboxElement: {
+        prototype: HTMLZCheckboxElement;
+        new (): HTMLZCheckboxElement;
+    };
     interface HTMLZDetailsElement extends Components.ZDetails, HTMLStencilElement {
     }
     var HTMLZDetailsElement: {
@@ -282,6 +294,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "z-aspect-ratio": HTMLZAspectRatioElement;
         "z-box": HTMLZBoxElement;
+        "z-checkbox": HTMLZCheckboxElement;
         "z-details": HTMLZDetailsElement;
         "z-details-group": HTMLZDetailsGroupElement;
         "z-divider": HTMLZDividerElement;
@@ -340,6 +353,12 @@ declare namespace LocalJSX {
         "w"?: string;
         "wrap"?: boolean;
         "zIndex"?: string;
+    }
+    interface ZCheckbox {
+        "checked"?: boolean;
+        "m"?: string;
+        "p"?: string;
+        "value"?: string;
     }
     interface ZDetails {
         "isExpanded"?: boolean;
@@ -470,6 +489,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "z-aspect-ratio": ZAspectRatio;
         "z-box": ZBox;
+        "z-checkbox": ZCheckbox;
         "z-details": ZDetails;
         "z-details-group": ZDetailsGroup;
         "z-divider": ZDivider;
@@ -493,6 +513,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "z-aspect-ratio": LocalJSX.ZAspectRatio & JSXBase.HTMLAttributes<HTMLZAspectRatioElement>;
             "z-box": LocalJSX.ZBox & JSXBase.HTMLAttributes<HTMLZBoxElement>;
+            "z-checkbox": LocalJSX.ZCheckbox & JSXBase.HTMLAttributes<HTMLZCheckboxElement>;
             "z-details": LocalJSX.ZDetails & JSXBase.HTMLAttributes<HTMLZDetailsElement>;
             "z-details-group": LocalJSX.ZDetailsGroup & JSXBase.HTMLAttributes<HTMLZDetailsGroupElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;

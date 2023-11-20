@@ -35,17 +35,31 @@ const options = [
   { name: "Lat", key: "address.geo.lat", width: "30px" },
   { name: "Lng", key: "address.geo.lng" },
 ]
-
-const switchValue = ref(false)
+const switchRef = ref(false)
+const checkboxRef = ref(false)
 </script>
 
 <template>
+  <!-- CHECKBOX -->
+  <z-checkbox
+    :checked="checkboxRef"
+    value="newsletter"
+    @change="(event: Event) => {
+      console.log((event.target as HTMLInputElement).value)
+      checkboxRef = (event.target as HTMLInputElement).checked
+    }"
+  >
+    Was geht denn ab
+  </z-checkbox>
+  <div v-if="checkboxRef">True</div>
+  <div v-else>False</div>
+
   <!-- SWITCH -->
   <z-switch
-    :value="switchValue"
-    @change="(event: Event) => (switchValue = !!(event.target as HTMLInputElement).value)"
+    :value="switchRef"
+    @change="(event: Event) => (switchRef = !!(event.target as HTMLInputElement).value)"
   ></z-switch>
-  <div v-if="switchValue">True</div>
+  <div v-if="switchRef">True</div>
   <div v-else>False</div>
 
   <!-- DETAILS / ACCORDION -->
