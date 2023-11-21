@@ -1,17 +1,3 @@
-export function assignRole(tagName) {
-  const roleMap = {
-    header: 'banner',
-    footer: 'contentinfo',
-    main: 'main',
-    nav: 'navigation',
-    article: 'article',
-    section: 'region',
-    search: 'search',
-    aside: 'complementary',
-  }
-  return tagName ? roleMap[tagName] : 'none'
-}
-
 export function applySpacingStyles(props, display = 'block') {
   if (!props) return
 
@@ -31,6 +17,22 @@ export function applySpacingStyles(props, display = 'block') {
   props.m && (spacingStyles['margin'] = props.m)
 
   return spacingStyles
+}
+
+export function applyPositionStyles(props) {
+  const positionStylesMap = {
+    'top-left': { alignItems: 'flex-start', justifyContent: 'flex-start' },
+    'top': { alignItems: 'flex-start', justifyContent: 'center' },
+    'top-right': { alignItems: 'flex-start', justifyContent: 'flex-end' },
+    'left': { alignItems: 'center', justifyContent: 'flex-start' },
+    'center': { alignItems: 'center', justifyContent: 'center' },
+    'right': { alignItems: 'center', justifyContent: 'flex-end' },
+    'bottom-left': { alignItems: 'flex-end', justifyContent: 'flex-start' },
+    'bottom': { alignItems: 'flex-end', justifyContent: 'center' },
+    'bottom-right': { alignItems: 'flex-end', justifyContent: 'flex-end' },
+  }
+
+  return { display: 'flex', ...positionStylesMap[props.position] }
 }
 
 export function applyBoxStyles(props) {
@@ -61,6 +63,20 @@ export function applyBoxStyles(props) {
     pointerEvents: props.pointerEvents,
   }
   return { ...applySpacingStyles(props, 'flex'), ...boxStyles }
+}
+
+export function assignRole(tagName) {
+  const roleMap = {
+    header: 'banner',
+    footer: 'contentinfo',
+    main: 'main',
+    nav: 'navigation',
+    article: 'article',
+    section: 'region',
+    search: 'search',
+    aside: 'complementary',
+  }
+  return tagName ? roleMap[tagName] : 'none'
 }
 
 export function getParentBoxesCount(el: HTMLElement, counter) {

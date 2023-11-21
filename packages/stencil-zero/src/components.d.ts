@@ -64,6 +64,10 @@ export namespace Components {
         "p": string;
         "value": string;
     }
+    interface ZCloseButton {
+        "m": string;
+        "p": string;
+    }
     interface ZDetails {
         "isExpanded": boolean;
         "m": string;
@@ -76,6 +80,16 @@ export namespace Components {
         "gap": string;
         "m": string;
         "p": string;
+    }
+    interface ZDialog {
+        "disableOverlayClose": boolean;
+        "hideCloseButton": boolean;
+        "m": string;
+        "mb": string;
+        "ml": string;
+        "mr": string;
+        "mt": string;
+        "position": 'top-left' | 'top' | 'top-right' | 'center-left' | 'center' | 'center-right' | 'bottom-left' | 'bottom' | 'bottom-right';
     }
     interface ZDivider {
         "contentPosition": string;
@@ -191,6 +205,14 @@ export namespace Components {
         "transform": 'none' | 'capitalize' | 'uppercase' | 'lowercase' | 'full-width' | 'full-size-kana';
     }
 }
+export interface ZCloseButtonCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZCloseButtonElement;
+}
+export interface ZDialogCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZDialogElement;
+}
 declare global {
     interface HTMLZAspectRatioElement extends Components.ZAspectRatio, HTMLStencilElement {
     }
@@ -216,6 +238,23 @@ declare global {
         prototype: HTMLZCheckboxElement;
         new (): HTMLZCheckboxElement;
     };
+    interface HTMLZCloseButtonElementEventMap {
+        "close": any;
+    }
+    interface HTMLZCloseButtonElement extends Components.ZCloseButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZCloseButtonElementEventMap>(type: K, listener: (this: HTMLZCloseButtonElement, ev: ZCloseButtonCustomEvent<HTMLZCloseButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZCloseButtonElementEventMap>(type: K, listener: (this: HTMLZCloseButtonElement, ev: ZCloseButtonCustomEvent<HTMLZCloseButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZCloseButtonElement: {
+        prototype: HTMLZCloseButtonElement;
+        new (): HTMLZCloseButtonElement;
+    };
     interface HTMLZDetailsElement extends Components.ZDetails, HTMLStencilElement {
     }
     var HTMLZDetailsElement: {
@@ -227,6 +266,23 @@ declare global {
     var HTMLZDetailsGroupElement: {
         prototype: HTMLZDetailsGroupElement;
         new (): HTMLZDetailsGroupElement;
+    };
+    interface HTMLZDialogElementEventMap {
+        "close": any;
+    }
+    interface HTMLZDialogElement extends Components.ZDialog, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZDialogElementEventMap>(type: K, listener: (this: HTMLZDialogElement, ev: ZDialogCustomEvent<HTMLZDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZDialogElementEventMap>(type: K, listener: (this: HTMLZDialogElement, ev: ZDialogCustomEvent<HTMLZDialogElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZDialogElement: {
+        prototype: HTMLZDialogElement;
+        new (): HTMLZDialogElement;
     };
     interface HTMLZDividerElement extends Components.ZDivider, HTMLStencilElement {
     }
@@ -311,8 +367,10 @@ declare global {
         "z-box": HTMLZBoxElement;
         "z-button": HTMLZButtonElement;
         "z-checkbox": HTMLZCheckboxElement;
+        "z-close-button": HTMLZCloseButtonElement;
         "z-details": HTMLZDetailsElement;
         "z-details-group": HTMLZDetailsGroupElement;
+        "z-dialog": HTMLZDialogElement;
         "z-divider": HTMLZDividerElement;
         "z-heading": HTMLZHeadingElement;
         "z-highlight": HTMLZHighlightElement;
@@ -385,6 +443,11 @@ declare namespace LocalJSX {
         "p"?: string;
         "value"?: string;
     }
+    interface ZCloseButton {
+        "m"?: string;
+        "onClose"?: (event: ZCloseButtonCustomEvent<any>) => void;
+        "p"?: string;
+    }
     interface ZDetails {
         "isExpanded"?: boolean;
         "m"?: string;
@@ -397,6 +460,17 @@ declare namespace LocalJSX {
         "gap"?: string;
         "m"?: string;
         "p"?: string;
+    }
+    interface ZDialog {
+        "disableOverlayClose"?: boolean;
+        "hideCloseButton"?: boolean;
+        "m"?: string;
+        "mb"?: string;
+        "ml"?: string;
+        "mr"?: string;
+        "mt"?: string;
+        "onClose"?: (event: ZDialogCustomEvent<any>) => void;
+        "position"?: 'top-left' | 'top' | 'top-right' | 'center-left' | 'center' | 'center-right' | 'bottom-left' | 'bottom' | 'bottom-right';
     }
     interface ZDivider {
         "contentPosition"?: string;
@@ -516,8 +590,10 @@ declare namespace LocalJSX {
         "z-box": ZBox;
         "z-button": ZButton;
         "z-checkbox": ZCheckbox;
+        "z-close-button": ZCloseButton;
         "z-details": ZDetails;
         "z-details-group": ZDetailsGroup;
+        "z-dialog": ZDialog;
         "z-divider": ZDivider;
         "z-heading": ZHeading;
         "z-highlight": ZHighlight;
@@ -541,8 +617,10 @@ declare module "@stencil/core" {
             "z-box": LocalJSX.ZBox & JSXBase.HTMLAttributes<HTMLZBoxElement>;
             "z-button": LocalJSX.ZButton & JSXBase.HTMLAttributes<HTMLZButtonElement>;
             "z-checkbox": LocalJSX.ZCheckbox & JSXBase.HTMLAttributes<HTMLZCheckboxElement>;
+            "z-close-button": LocalJSX.ZCloseButton & JSXBase.HTMLAttributes<HTMLZCloseButtonElement>;
             "z-details": LocalJSX.ZDetails & JSXBase.HTMLAttributes<HTMLZDetailsElement>;
             "z-details-group": LocalJSX.ZDetailsGroup & JSXBase.HTMLAttributes<HTMLZDetailsGroupElement>;
+            "z-dialog": LocalJSX.ZDialog & JSXBase.HTMLAttributes<HTMLZDialogElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-highlight": LocalJSX.ZHighlight & JSXBase.HTMLAttributes<HTMLZHighlightElement>;

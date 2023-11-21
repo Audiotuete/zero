@@ -72,6 +72,13 @@ export const ZCheckbox = /*@__PURE__*/ defineContainer<JSX.ZCheckbox>('z-checkbo
 ]);
 
 
+export const ZCloseButton = /*@__PURE__*/ defineContainer<JSX.ZCloseButton>('z-close-button', undefined, [
+  'm',
+  'p',
+  'close'
+]);
+
+
 export const ZDetails = /*@__PURE__*/ defineContainer<JSX.ZDetails>('z-details', undefined, [
   'summary',
   'spacingTop',
@@ -86,6 +93,19 @@ export const ZDetailsGroup = /*@__PURE__*/ defineContainer<JSX.ZDetailsGroup>('z
   'gap',
   'm',
   'p'
+]);
+
+
+export const ZDialog = /*@__PURE__*/ defineContainer<JSX.ZDialog>('z-dialog', undefined, [
+  'm',
+  'mt',
+  'mb',
+  'mr',
+  'ml',
+  'position',
+  'disableOverlayClose',
+  'hideCloseButton',
+  'close'
 ]);
 
 

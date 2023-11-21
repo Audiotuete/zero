@@ -37,9 +37,50 @@ const options = [
 ]
 const switchRef = ref(false)
 const checkboxRef = ref(false)
+
+const statusOne = ref(false)
+const statusTwo = ref(false)
 </script>
 
 <template>
+  <!-- DIALOG -->
+  <z-box
+    w="300px"
+    h="300px"
+    background="#fdcb6e"
+    @click="statusOne = !statusOne"
+  >
+  </z-box>
+  <z-dialog
+    v-if="statusOne"
+    position="top"
+    hide-close-button
+    @close="statusOne = !statusOne"
+  >
+    <z-box
+      @click="statusTwo = !statusTwo"
+      w="200px"
+      h="200px"
+      background="#00b894"
+    >
+    </z-box>
+  </z-dialog>
+  <z-dialog
+    v-if="statusTwo"
+    disable-overlay-close
+    @close="statusTwo = !statusTwo"
+    position="center"
+  >
+    <z-close-button slot="close-button"></z-close-button>
+
+    <z-box
+      w="100px"
+      h="100px"
+      background="#0984e3"
+    >
+    </z-box>
+  </z-dialog>
+
   <!-- BUTTON -->
   <z-button
     :loading="false"
