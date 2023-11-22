@@ -107,6 +107,8 @@ export const ZDialog = /*@__PURE__*/ defineContainer<JSX.ZDialog>('z-dialog', un
   'overlayColor',
   'overlayOpacity',
   'disableOverlayClose',
+  'contentWidth',
+  'contentHeight',
   'close'
 ]);
 
@@ -120,6 +122,16 @@ export const ZDivider = /*@__PURE__*/ defineContainer<JSX.ZDivider>('z-divider',
   'dividerStyle',
   'm',
   'p'
+]);
+
+
+export const ZDrawer = /*@__PURE__*/ defineContainer<JSX.ZDrawer>('z-drawer', undefined, [
+  'position',
+  'drawerWidth',
+  'drawerHeight',
+  'overlayColor',
+  'overlayOpacity',
+  'hideCloseButton'
 ]);
 
 

@@ -43,7 +43,7 @@ const statusTwo = ref(false)
 </script>
 
 <template>
-  <!-- DIALOG -->
+  <!-- DIALOG & DRAWER -->
   <z-box
     w="300px"
     h="300px"
@@ -51,12 +51,10 @@ const statusTwo = ref(false)
     @click="statusOne = !statusOne"
   >
   </z-box>
-  <z-dialog
+  <z-drawer
     v-if="statusOne"
-    position="top"
     hide-close-button
-    overlay-color="#000"
-    overlay-opacity="0.3"
+    position=""
     @close="statusOne = !statusOne"
   >
     <z-box
@@ -66,20 +64,20 @@ const statusTwo = ref(false)
       background="#00b894"
     >
     </z-box>
-  </z-dialog>
+  </z-drawer>
   <z-dialog
     v-if="statusTwo"
     disable-overlay-close
     @close="statusTwo = !statusTwo"
     position="center"
   >
-    <z-close-button slot="close-button"></z-close-button>
-
+    <z-close-button m="0">x</z-close-button>
     <z-box
       w="100px"
       h="100px"
       background="#0984e3"
     >
+      Hello
     </z-box>
   </z-dialog>
 

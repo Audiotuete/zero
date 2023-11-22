@@ -82,6 +82,8 @@ export namespace Components {
         "p": string;
     }
     interface ZDialog {
+        "contentHeight": string;
+        "contentWidth": string;
         "disableOverlayClose": boolean;
         "hideCloseButton": boolean;
         "m": string;
@@ -91,7 +93,7 @@ export namespace Components {
         "mt": string;
         "overlayColor": string;
         "overlayOpacity": string;
-        "position": 'top-left' | 'top' | 'top-right' | 'center-left' | 'center' | 'center-right' | 'bottom-left' | 'bottom' | 'bottom-right';
+        "position": 'top-left' | 'top' | 'top-right' | 'left' | 'center' | 'right' | 'bottom-left' | 'bottom' | 'bottom-right';
     }
     interface ZDivider {
         "contentPosition": string;
@@ -102,6 +104,14 @@ export namespace Components {
         "m": string;
         "p": string;
         "vertical": boolean;
+    }
+    interface ZDrawer {
+        "drawerHeight": string;
+        "drawerWidth": string;
+        "hideCloseButton": boolean;
+        "overlayColor": string;
+        "overlayOpacity": string;
+        "position": 'top' | 'right' | 'bottom' | 'left';
     }
     interface ZHeading {
         "color": string;
@@ -292,6 +302,12 @@ declare global {
         prototype: HTMLZDividerElement;
         new (): HTMLZDividerElement;
     };
+    interface HTMLZDrawerElement extends Components.ZDrawer, HTMLStencilElement {
+    }
+    var HTMLZDrawerElement: {
+        prototype: HTMLZDrawerElement;
+        new (): HTMLZDrawerElement;
+    };
     interface HTMLZHeadingElement extends Components.ZHeading, HTMLStencilElement {
     }
     var HTMLZHeadingElement: {
@@ -374,6 +390,7 @@ declare global {
         "z-details-group": HTMLZDetailsGroupElement;
         "z-dialog": HTMLZDialogElement;
         "z-divider": HTMLZDividerElement;
+        "z-drawer": HTMLZDrawerElement;
         "z-heading": HTMLZHeadingElement;
         "z-highlight": HTMLZHighlightElement;
         "z-list-box": HTMLZListBoxElement;
@@ -464,6 +481,8 @@ declare namespace LocalJSX {
         "p"?: string;
     }
     interface ZDialog {
+        "contentHeight"?: string;
+        "contentWidth"?: string;
         "disableOverlayClose"?: boolean;
         "hideCloseButton"?: boolean;
         "m"?: string;
@@ -474,7 +493,7 @@ declare namespace LocalJSX {
         "onClose"?: (event: ZDialogCustomEvent<any>) => void;
         "overlayColor"?: string;
         "overlayOpacity"?: string;
-        "position"?: 'top-left' | 'top' | 'top-right' | 'center-left' | 'center' | 'center-right' | 'bottom-left' | 'bottom' | 'bottom-right';
+        "position"?: 'top-left' | 'top' | 'top-right' | 'left' | 'center' | 'right' | 'bottom-left' | 'bottom' | 'bottom-right';
     }
     interface ZDivider {
         "contentPosition"?: string;
@@ -485,6 +504,14 @@ declare namespace LocalJSX {
         "m"?: string;
         "p"?: string;
         "vertical"?: boolean;
+    }
+    interface ZDrawer {
+        "drawerHeight"?: string;
+        "drawerWidth"?: string;
+        "hideCloseButton"?: boolean;
+        "overlayColor"?: string;
+        "overlayOpacity"?: string;
+        "position"?: 'top' | 'right' | 'bottom' | 'left';
     }
     interface ZHeading {
         "color"?: string;
@@ -599,6 +626,7 @@ declare namespace LocalJSX {
         "z-details-group": ZDetailsGroup;
         "z-dialog": ZDialog;
         "z-divider": ZDivider;
+        "z-drawer": ZDrawer;
         "z-heading": ZHeading;
         "z-highlight": ZHighlight;
         "z-list-box": ZListBox;
@@ -626,6 +654,7 @@ declare module "@stencil/core" {
             "z-details-group": LocalJSX.ZDetailsGroup & JSXBase.HTMLAttributes<HTMLZDetailsGroupElement>;
             "z-dialog": LocalJSX.ZDialog & JSXBase.HTMLAttributes<HTMLZDialogElement>;
             "z-divider": LocalJSX.ZDivider & JSXBase.HTMLAttributes<HTMLZDividerElement>;
+            "z-drawer": LocalJSX.ZDrawer & JSXBase.HTMLAttributes<HTMLZDrawerElement>;
             "z-heading": LocalJSX.ZHeading & JSXBase.HTMLAttributes<HTMLZHeadingElement>;
             "z-highlight": LocalJSX.ZHighlight & JSXBase.HTMLAttributes<HTMLZHighlightElement>;
             "z-list-box": LocalJSX.ZListBox & JSXBase.HTMLAttributes<HTMLZListBoxElement>;
