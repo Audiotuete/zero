@@ -13,8 +13,10 @@ export class Dialog {
   @Prop() mr: string
   @Prop() ml: string
   @Prop() position: 'top-left' | 'top' | 'top-right' | 'center-left' | 'center' | 'center-right' | 'bottom-left' | 'bottom' | 'bottom-right'
-  @Prop() disableOverlayClose: boolean
   @Prop() hideCloseButton: boolean
+  @Prop() overlayColor: string
+  @Prop() overlayOpacity: string
+  @Prop() disableOverlayClose: boolean
 
   @Event() close: EventEmitter
   @Element() root: HTMLElement
@@ -33,7 +35,11 @@ export class Dialog {
 
     return (
       <Host style={applyPositionStyles(this)}>
-        <div class="overlay" onClick={() => !this.disableOverlayClose && this.close.emit()}></div>
+        <div
+          class="overlay"
+          style={{ background: this.overlayColor, opacity: this.overlayOpacity }}
+          onClick={() => !this.disableOverlayClose && this.close.emit()}
+        ></div>
         <div class="content" style={applySpacingStyles(this)}>
           <slot />
           <CloseButtonSlot />

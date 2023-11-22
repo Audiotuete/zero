@@ -55,6 +55,8 @@ const statusTwo = ref(false)
     v-if="statusOne"
     position="top"
     hide-close-button
+    overlay-color="#000"
+    overlay-opacity="0.3"
     @close="statusOne = !statusOne"
   >
     <z-box

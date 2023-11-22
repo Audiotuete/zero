@@ -89,6 +89,8 @@ export namespace Components {
         "ml": string;
         "mr": string;
         "mt": string;
+        "overlayColor": string;
+        "overlayOpacity": string;
         "position": 'top-left' | 'top' | 'top-right' | 'center-left' | 'center' | 'center-right' | 'bottom-left' | 'bottom' | 'bottom-right';
     }
     interface ZDivider {
@@ -470,6 +472,8 @@ declare namespace LocalJSX {
         "mr"?: string;
         "mt"?: string;
         "onClose"?: (event: ZDialogCustomEvent<any>) => void;
+        "overlayColor"?: string;
+        "overlayOpacity"?: string;
         "position"?: 'top-left' | 'top' | 'top-right' | 'center-left' | 'center' | 'center-right' | 'bottom-left' | 'bottom' | 'bottom-right';
     }
     interface ZDivider {

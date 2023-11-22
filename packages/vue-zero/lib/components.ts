@@ -103,8 +103,10 @@ export const ZDialog = /*@__PURE__*/ defineContainer<JSX.ZDialog>('z-dialog', un
   'mr',
   'ml',
   'position',
-  'disableOverlayClose',
   'hideCloseButton',
+  'overlayColor',
+  'overlayOpacity',
+  'disableOverlayClose',
   'close'
 ]);
 

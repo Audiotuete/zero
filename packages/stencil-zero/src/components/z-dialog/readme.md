@@ -16,6 +16,8 @@
 | `ml`                  | `ml`                    |             | `string`                                                                                                                           | `undefined` |
 | `mr`                  | `mr`                    |             | `string`                                                                                                                           | `undefined` |
 | `mt`                  | `mt`                    |             | `string`                                                                                                                           | `undefined` |
+| `overlayColor`        | `overlay-color`         |             | `string`                                                                                                                           | `undefined` |
+| `overlayOpacity`      | `overlay-opacity`       |             | `string`                                                                                                                           | `undefined` |
 | `position`            | `position`              |             | `"bottom" \| "bottom-left" \| "bottom-right" \| "center" \| "center-left" \| "center-right" \| "top" \| "top-left" \| "top-right"` | `undefined` |
 
 
