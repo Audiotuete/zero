@@ -25,11 +25,13 @@
 ### Used by
 
  - [z-dialog](../z-dialog)
+ - [z-popover](../z-popover)
 
 ### Graph
 ```mermaid
 graph TD;
   z-dialog --> z-close-button
+  z-popover --> z-close-button
   style z-close-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -207,6 +207,18 @@ export const ZListItem = /*@__PURE__*/ defineContainer<JSX.ZListItem>('z-list-it
 ]);
 
 
+export const ZPopover = /*@__PURE__*/ defineContainer<JSX.ZPopover>('z-popover', undefined, [
+  'm',
+  'mt',
+  'mb',
+  'mr',
+  'ml',
+  'position',
+  'hideCloseButton',
+  'close'
+]);
+
+
 export const ZSwitch = /*@__PURE__*/ defineContainer<JSX.ZSwitch>('z-switch', undefined, [
   'value',
   'm',

@@ -177,6 +177,29 @@ export namespace Components {
         "m": string;
         "p": string;
     }
+    interface ZPopover {
+        "hideCloseButton": boolean;
+        "m": string;
+        "mb": string;
+        "ml": string;
+        "mr": string;
+        "mt": string;
+        "position": | 'bottom-start'
+    | 'bottom'
+    | 'bottom-end'
+    | 'auto-start'
+    | '	auto'
+    | 'auto-end'
+    | 'top-start'
+    | 'top'
+    | 'top-end'
+    | 'left-start'
+    | 'left'
+    | 'left-end'
+    | 'right-start'
+    | 'right'
+    | 'right-end';
+    }
     interface ZSwitch {
         "m": string;
         "p": string;
@@ -224,6 +247,10 @@ export interface ZCloseButtonCustomEvent<T> extends CustomEvent<T> {
 export interface ZDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLZDialogElement;
+}
+export interface ZPopoverCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLZPopoverElement;
 }
 declare global {
     interface HTMLZAspectRatioElement extends Components.ZAspectRatio, HTMLStencilElement {
@@ -332,6 +359,23 @@ declare global {
         prototype: HTMLZListItemElement;
         new (): HTMLZListItemElement;
     };
+    interface HTMLZPopoverElementEventMap {
+        "close": any;
+    }
+    interface HTMLZPopoverElement extends Components.ZPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLZPopoverElementEventMap>(type: K, listener: (this: HTMLZPopoverElement, ev: ZPopoverCustomEvent<HTMLZPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLZPopoverElementEventMap>(type: K, listener: (this: HTMLZPopoverElement, ev: ZPopoverCustomEvent<HTMLZPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLZPopoverElement: {
+        prototype: HTMLZPopoverElement;
+        new (): HTMLZPopoverElement;
+    };
     interface HTMLZSwitchElement extends Components.ZSwitch, HTMLStencilElement {
     }
     var HTMLZSwitchElement: {
@@ -395,6 +439,7 @@ declare global {
         "z-highlight": HTMLZHighlightElement;
         "z-list-box": HTMLZListBoxElement;
         "z-list-item": HTMLZListItemElement;
+        "z-popover": HTMLZPopoverElement;
         "z-switch": HTMLZSwitchElement;
         "z-tab-content": HTMLZTabContentElement;
         "z-tab-content-item": HTMLZTabContentItemElement;
@@ -577,6 +622,30 @@ declare namespace LocalJSX {
         "m"?: string;
         "p"?: string;
     }
+    interface ZPopover {
+        "hideCloseButton"?: boolean;
+        "m"?: string;
+        "mb"?: string;
+        "ml"?: string;
+        "mr"?: string;
+        "mt"?: string;
+        "onClose"?: (event: ZPopoverCustomEvent<any>) => void;
+        "position"?: | 'bottom-start'
+    | 'bottom'
+    | 'bottom-end'
+    | 'auto-start'
+    | '	auto'
+    | 'auto-end'
+    | 'top-start'
+    | 'top'
+    | 'top-end'
+    | 'left-start'
+    | 'left'
+    | 'left-end'
+    | 'right-start'
+    | 'right'
+    | 'right-end';
+    }
     interface ZSwitch {
         "m"?: string;
         "p"?: string;
@@ -631,6 +700,7 @@ declare namespace LocalJSX {
         "z-highlight": ZHighlight;
         "z-list-box": ZListBox;
         "z-list-item": ZListItem;
+        "z-popover": ZPopover;
         "z-switch": ZSwitch;
         "z-tab-content": ZTabContent;
         "z-tab-content-item": ZTabContentItem;
@@ -659,6 +729,7 @@ declare module "@stencil/core" {
             "z-highlight": LocalJSX.ZHighlight & JSXBase.HTMLAttributes<HTMLZHighlightElement>;
             "z-list-box": LocalJSX.ZListBox & JSXBase.HTMLAttributes<HTMLZListBoxElement>;
             "z-list-item": LocalJSX.ZListItem & JSXBase.HTMLAttributes<HTMLZListItemElement>;
+            "z-popover": LocalJSX.ZPopover & JSXBase.HTMLAttributes<HTMLZPopoverElement>;
             "z-switch": LocalJSX.ZSwitch & JSXBase.HTMLAttributes<HTMLZSwitchElement>;
             "z-tab-content": LocalJSX.ZTabContent & JSXBase.HTMLAttributes<HTMLZTabContentElement>;
             "z-tab-content-item": LocalJSX.ZTabContentItem & JSXBase.HTMLAttributes<HTMLZTabContentItemElement>;
