@@ -108,7 +108,11 @@ export class TableBuilder {
                 ))}
               </tr>
               {this.data.map(row => (
-                <tr>{Object.values(row).map(value => (typeof value != 'object' ? <td>{value}</td> : <td style={{ color: 'red' }}>Object: use options dot notation</td>))}</tr>
+                <tr>
+                  {Object.values(row).map(value =>
+                    typeof value != 'object' ? <td>{value}</td> : <td style={{ color: 'red' }}>Object: use options dot notation</td>,
+                  )}
+                </tr>
               ))}
             </table>
           </Host>
