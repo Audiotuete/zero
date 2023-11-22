@@ -2,10 +2,13 @@
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 900;
+  margin: 4px 8px 0 0;
 }
 
 .close-btn {
-  margin: 16px 8px 0 0;
+  padding: 0;
   background: none;
   border: none;
+  font-size: 100%;
 }

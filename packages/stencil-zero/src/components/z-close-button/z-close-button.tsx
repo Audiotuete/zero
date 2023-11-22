@@ -16,7 +16,7 @@ export class Checkbox {
     return (
       <Host style={applySpacingStyles(this)}>
         <button class="close-btn" onClick={() => this.close.emit()}>
-          X
+          <slot></slot>
         </button>
       </Host>
     )
